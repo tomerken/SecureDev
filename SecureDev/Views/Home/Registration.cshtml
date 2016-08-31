@@ -1,0 +1,79 @@
+﻿@model Vladi2.Models.User
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+@using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>User</legend>
+
+        <div>
+            @Html.LabelFor(a => a.Username)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.Username)
+            @Html.ValidationMessageFor(a => a.Username)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.Password)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.Password)
+            @Html.ValidationMessageFor(a => a.Password)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.ComparePassword)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.ComparePassword)
+            @Html.ValidationMessageFor(a => a.ComparePassword)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.Email)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.Email)
+            @Html.ValidationMessageFor(a => a.Email)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.FirstName)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.FirstName)
+            @Html.ValidationMessageFor(a => a.FirstName)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.LastName)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.LastName)
+            @Html.ValidationMessageFor(a => a.LastName)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.Phone)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.Phone)
+            @Html.ValidationMessageFor(a => a.Phone)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.Picture)
+        </div>
+        <div>
+            @Html.EditorFor(a => a.Picture)
+            @Html.ValidationMessageFor(a => a.Picture)
+        </div>
+
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    </fieldset>
+}
+
