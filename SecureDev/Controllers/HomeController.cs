@@ -29,11 +29,14 @@ namespace Vladi2.Controllers
         {
             if(ModelState.IsValid)
             {
-                var connectionString = string.Format("DataSource={0}", "C:\\Users\\tomer\\desktop\\SecureDev\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
+                var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();
-                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = '" + u.Username + "' and password = '" + u.Password + "'", m_dbConnection))
+                    SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
+                    command.Parameters.AddWithValue("@username", u.Username);
+                    command.Parameters.AddWithValue("@password", u.Password);
+                    //using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = '" + u.Username + "' and password = '" + u.Password + "'", m_dbConnection))
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
