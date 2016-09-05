@@ -22,9 +22,11 @@ namespace Vladi2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(User u)
         {
+            if (Session["LoggedUserName"] != null)
+                return RedirectToAction("Index", "Home");
             if (ModelState.IsValid)
             {
-                var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
+                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();

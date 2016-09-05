@@ -14,9 +14,11 @@ namespace Vladi2.Controllers
         // GET: Forum
         public ActionResult Index()
         {
+            if (Session["LoggedUserName"] == null)
+                return RedirectToAction("Index", "Login");
             List<ForumMessage> msgs = new List<ForumMessage>();
             ForumMessage msg;
-            var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
+            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
@@ -40,6 +42,8 @@ namespace Vladi2.Controllers
 
         public ActionResult Create()
         {
+            if (Session["LoggedUserName"] == null)
+                return RedirectToAction("Index", "Login");
             return View();
         }
 
@@ -47,7 +51,9 @@ namespace Vladi2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ForumMessage msg)
         {
-                if (ModelState.IsValid)
+            if (Session["LoggedUserName"] == null)
+                return RedirectToAction("Index", "Login");
+            if (ModelState.IsValid)
                 {
                     var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
                     using (var m_dbConnection = new SQLiteConnection(connectionString))

@@ -8,9 +8,11 @@ namespace Vladi2.Models
     
     public class User
     {
+        [ScaffoldColumn(false)]
         public int ID { get; set; }
         [Required(ErrorMessage = "Username is a required field")]
         public string Username { get; set; }
+        [ScaffoldColumn(false)]
         [Required(ErrorMessage = "Password is a required field")]
         [DataType(DataType.Password)]
         [StringLength(12,MinimumLength = 5, ErrorMessage = "Password length must be at least 5 characters and at most 12 characters")]

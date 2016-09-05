@@ -21,9 +21,12 @@ namespace Vladi2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginUser u)
         {
+            if (Session["LoggedUserName"] != null)
+                return RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
-                var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
+                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();
@@ -47,6 +50,21 @@ namespace Vladi2.Controllers
             //the login failed - redirect to login page with the login error
             //return RedirectToAction("Index", "Home", new { validationError = "The username or password are invalid" });
             return View(u);
+        }
+
+        public ActionResult Logout()
+        {
+            if(Session["LoggedUserId"] != null)
+            {
+                Session["LoggedUserId"] = null;
+            }
+
+            if(Session["LoggedUserName"] != null)
+            {
+                Session["LoggedUserName"] = null;
+            }
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
