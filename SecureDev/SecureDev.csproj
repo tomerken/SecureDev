@@ -141,10 +141,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ForumMessage.cs" />
     <Compile Include="Models\homeVM.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\User.cs" />
@@ -188,9 +192,11 @@
     <Content Include="Views\Home\XSS.cshtml" />
     <Content Include="Views\Home\UserHome.cshtml" />
     <Content Include="Sqlite\db.sqlite" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Forum\Index.cshtml" />
+    <Content Include="Views\Forum\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
