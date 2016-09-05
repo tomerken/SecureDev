@@ -21,6 +21,8 @@ namespace Vladi2.Controllers
         //GET: home/login 
         public ActionResult Login()
         {
+            if (Session["LoggedUserName"] != null)
+                return View("Index");
             return View();
         }
         [HttpPost]
@@ -69,6 +71,8 @@ namespace Vladi2.Controllers
 
         public ActionResult Registration()
         {
+            if (Session["LoggedUserName"] != null)
+                return View("Index");
             return View();
         }
 

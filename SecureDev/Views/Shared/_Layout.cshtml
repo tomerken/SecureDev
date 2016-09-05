@@ -17,7 +17,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Go to home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Registration", "Registration", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -32,7 +36,12 @@
     <hr/>
     @*layout footer*@
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        @Html.ActionLink("About Us", "About Us", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Help", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Job", "Job", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Terms", "Terms", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Privacy", "Privacy", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Contact Us", "Contact Us", "Home", new { area = "" }, new { @class = "navbar-brand" })
     </footer>
 </div>
     @*renders and minifies scripts with the mvc bundles*@
