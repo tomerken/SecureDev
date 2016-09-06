@@ -33,7 +33,6 @@ namespace Vladi2.Controllers
                     SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
                     command.Parameters.AddWithValue("@username", u.Username);
                     command.Parameters.AddWithValue("@password", u.Password);
-                    //using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = '" + u.Username + "' and password = '" + u.Password + "'", m_dbConnection))
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -42,7 +41,7 @@ namespace Vladi2.Controllers
                             Session["LoggedUserId"] = reader.GetInt32(0);
                             string userName = reader.GetString(1).Trim();
                             Session["LoggedUserName"] = userName;
-                            return RedirectToAction("UserHome", "Home", new { userName });
+                            return RedirectToAction("Index", "Home", new { userName });
                         }
                     }
                 }
