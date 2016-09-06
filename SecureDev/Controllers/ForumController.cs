@@ -55,7 +55,7 @@ namespace Vladi2.Controllers
                 return RedirectToAction("Index", "Login");
             if (ModelState.IsValid)
                 {
-                    var connectionString = string.Format("DataSource={0}", "D:\\SecureDev\\SecureDev\\Sqlite\\db.sqlite");
+                    var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                     using (var m_dbConnection = new SQLiteConnection(connectionString))
                     {
                         m_dbConnection.Open();
