@@ -12,7 +12,6 @@ namespace Vladi2.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = null;
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
             User user = null;
@@ -66,8 +65,10 @@ namespace Vladi2.Controllers
                     {
                         if (!reader.HasRows)
                         {
-                            //alert that the password is worng, and throw from this function 
-
+                            ViewBag.Message = "Password is not correct!";
+                            ViewBag.Color = "red";
+                              
+                            return View();
                         }
 
                     }
@@ -92,7 +93,8 @@ namespace Vladi2.Controllers
                         m_dbConnection.Close();
                     }
                 }
-                ViewData["Message"] = "profile updated Successfully";
+                ViewBag.Message = "profile updated Successfully";
+                ViewBag.Color = "green";
                 return View();
                 //return RedirectToAction("Index","Home");
             }

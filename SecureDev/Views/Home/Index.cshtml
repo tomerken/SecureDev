@@ -19,4 +19,18 @@
     1) We caught some worms and bugs yesterday at the garden - feel free to buy!<br />
     2) New fish are here!!!<br />
     </div>
+
+
 </div>
+
+@*@using (Html.BeginForm("Search", "Home"))*@
+
+    <input type="text" id="petName" name="name"/>
+    <input id="submitBtn" type="submit" value="Search" />
+@*}*/*@
+
+<div id="petsTable"></div>
+
+@section scripts {
+<script src="~/scripts/scriptHome.js"></script>
+}

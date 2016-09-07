@@ -81,9 +81,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
-                @if (ViewData["Message"] != null) { 
-                    <div style="color:green">Successfully updated profile</div>
-                }
+                    <div style="color:@ViewBag.Color">@ViewBag.Message</div>
             </div>
         </div>
     </div>
