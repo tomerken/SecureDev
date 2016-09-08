@@ -8,7 +8,7 @@ using Vladi2.Models;
 
 namespace Vladi2.Controllers
 {
-    public class UserProfileController : Controller
+    public class UserProfileController : BaseController
     {
         public ActionResult Index()
         {

@@ -8,7 +8,7 @@ using Vladi2.Models;
 
 namespace Vladi2.Controllers
 {
-    public class RegistrationController : Controller
+    public class RegistrationController : BaseController
     {
         // GET: Registration
         public ActionResult Index()

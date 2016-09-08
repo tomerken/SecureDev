@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace Vladi2.Controllers
 {
-    public class ForumController : Controller
+    public class ForumController : BaseController
     {
         // GET: Forum
         public ActionResult Index()
