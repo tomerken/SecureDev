@@ -32,6 +32,7 @@ namespace Vladi2.Models
         [Required(ErrorMessage = "Email is a required field")]
         [RegularExpression(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",ErrorMessage = "Please provide a valid email")]
         public string Email { get; set; }  
+        [RegularExpression(@"^\d{10}$",ErrorMessage ="Please enter a valid phone number with the format XXXXXXXXXX (10 digits)")]
         public string Phone { get; set; }
         public string Picture { get; set; }
 

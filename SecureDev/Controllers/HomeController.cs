@@ -67,8 +67,6 @@ namespace Vladi2.Controllers
                 //Response.Flush();
                 //Response.End();
             }
-
-            return RedirectToAction("Index");
         }
     }
 }

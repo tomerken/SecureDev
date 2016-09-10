@@ -19,7 +19,7 @@
         <tr>
             <td>@Html.LabelFor(a=>a.Password)</td>
             <td>@Html.PasswordFor(a => a.Password)</td>
-            <td>@Html.ValidationMessageFor(a => a.Password)</td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -29,6 +29,7 @@
     </table>
 }
 <br/>
+<div>@ViewBag.ErrorMessage</div>
 @Html.ActionLink("Register", "Registration")
 
 

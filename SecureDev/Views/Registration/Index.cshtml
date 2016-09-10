@@ -6,7 +6,7 @@
 
 <h2>Registration</h2>
 
-@using (Html.BeginForm("Index", "Registration", FormMethod.Post))
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -17,6 +17,7 @@
         <div>
             @Html.EditorFor(a => a.Username)
             @Html.ValidationMessageFor(a => a.Username)
+            @ViewBag.UserMessage
         </div>
         <div>
             @Html.LabelFor(a => a.Password)
@@ -63,9 +64,10 @@
         <div>
             @Html.LabelFor(a => a.Picture)
         </div>
-        <div>
-            @Html.EditorFor(a => a.Picture)
-            @Html.ValidationMessageFor(a => a.Picture)
+
+        <div class="form-group">
+            <input type="file" name="Picture" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif,.bmp" />
+            <div>@ViewBag.PictureMessage</div>
         </div>
 
         <div>

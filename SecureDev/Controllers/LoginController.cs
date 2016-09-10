@@ -41,13 +41,13 @@ namespace Vladi2.Controllers
                             Session["LoggedUserId"] = reader.GetInt32(0);
                             string userName = reader.GetString(1).Trim();
                             Session["LoggedUserName"] = userName;
-                            return RedirectToAction("Index", "Home", new { userName });
+                            return RedirectToAction("Index", "Home");
                         }
                     }
                 }
             }
             //the login failed - redirect to login page with the login error
-            //return RedirectToAction("Index", "Home", new { validationError = "The username or password are invalid" });
+            ViewBag.ErrorMessage = "The username or password are invalid";
             return View(u);
         }
 

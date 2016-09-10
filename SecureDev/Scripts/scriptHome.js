@@ -13,14 +13,18 @@ function search() {
 
 //build table of pets 
 function buildTablePets(data) {
-    var innerTable = "<table class='table table-striped table-hover table-bordered'><thead><tr><th>name</th><th>price</th></tr></thead><tbody>";
-    var jsonStr = JSON.parse(data);
-    for (x in jsonStr) {
-        innerTable += "<tr><td>" + jsonStr[x].PetName + "</td><td>" + jsonStr[x].Price + "</td></tr>"
+    if (data != '[]') {
+        var innerTable = "<table class='table table-striped table-hover table-bordered'><thead><tr><th>name</th><th>price</th></tr></thead><tbody>";
+        var jsonStr = JSON.parse(data);
 
+        for (x in jsonStr) {
+            innerTable += "<tr><td>" + jsonStr[x].PetName + "</td><td>" + jsonStr[x].Price + "</td></tr>"
+
+        }
+        innerTable += "</tbody></table>";
+
+        $("#petsTable").html(innerTable);
     }
-    innerTable += "</tbody></table>";
-
-    $("#petsTable").html(innerTable);
-    
+    else
+        $("#petsTable").html("No results were found for your search");
 }

@@ -35,7 +35,6 @@ namespace Vladi2.Controllers
                             user.LastName = reader.GetString(4).Trim();
                             user.Email = reader.GetString(5).Trim();
                             user.Phone = (!reader.IsDBNull(6)) ? reader.GetString(6).Trim() : string.Empty;
-                            user.Picture = (!reader.IsDBNull(7)) ? reader.GetString(7).Trim() : string.Empty;
                         }
                     }
                 }
@@ -47,12 +46,12 @@ namespace Vladi2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(User u)
         {
-            
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
 
             if (ModelState.IsValid)
             {
+                string fileName;
                 SQLiteCommand command;
                 var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
@@ -70,16 +69,40 @@ namespace Vladi2.Controllers
                               
                             return View();
                         }
-
                     }
-                    
-                    command = new SQLiteCommand("UPDATE tblusers SET firstname = @firstname, lastname = @lastname, email = @email, phone = @phone, picture = @picture WHERE ID = @id", m_dbConnection);
+                    string sql = "UPDATE tblusers SET firstname = @firstname, lastname = @lastname, email = @email, phone = @phone ";
+                    command = new SQLiteCommand();
                     command.Parameters.AddWithValue("@id", int.Parse(Session["LoggedUserId"].ToString()));
                     command.Parameters.AddWithValue("@firstname", u.FirstName);
                     command.Parameters.AddWithValue("@lastname", u.LastName);
                     command.Parameters.AddWithValue("@email", u.Email);
                     command.Parameters.AddWithValue("@phone", u.Phone);
-                    command.Parameters.AddWithValue("@picture", u.Picture);
+
+                    if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0 && Request.Files[0].FileName != "")
+                    {
+                        HttpPostedFileBase pictureFile = Request.Files["Picture"];
+                        if (pictureFile.ContentLength > 3000)
+                        {
+                            ViewBag.PictureMessage = "File size must not exceed 3MB";
+                            return View();
+                        }
+
+                        string extension = System.IO.Path.GetExtension(pictureFile.FileName);
+                        if (extension != ".jpeg" && extension != ".jpg" && extension != ".bmp" && extension != ".gif" && extension != ".tif" && extension != ".png")
+                        {
+                            ViewBag.PictureMessage = "Please upload a valid file";
+                            return View();
+                        }
+                        string guid = Guid.NewGuid().ToString();
+                        fileName = System.IO.Path.Combine(Server.MapPath("~/images/profile"), guid + extension);
+                        pictureFile.SaveAs(fileName);
+                        fileName = guid + extension;
+                        sql += ", picture = @picture";
+                        command.Parameters.AddWithValue("@picture", fileName);
+                    }
+                    sql += " WHERE ID = @id";
+                    command.Connection = m_dbConnection;
+                    command.CommandText = sql;
                     try
                     {
                         command.ExecuteNonQuery();
@@ -96,9 +119,7 @@ namespace Vladi2.Controllers
                 ViewBag.Message = "profile updated Successfully";
                 ViewBag.Color = "green";
                 return View();
-                //return RedirectToAction("Index","Home");
             }
-
             return View();
         }
     }
