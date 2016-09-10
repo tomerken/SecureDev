@@ -142,6 +142,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -151,6 +152,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminUser.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\ForumMessage.cs" />
     <Compile Include="Models\homeVM.cs" />
     <Compile Include="Models\LoginUser.cs" />
@@ -203,6 +205,8 @@
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\UserProfile\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\profile\" />

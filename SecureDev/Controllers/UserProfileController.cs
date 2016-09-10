@@ -122,5 +122,59 @@ namespace Vladi2.Controllers
             }
             return View();
         }
+        public ActionResult ChangePassword()
+        {
+            if (Session["LoggedUserID"] == null)
+                return RedirectToAction("Index", "Login");
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePassword cp)
+        {
+            if (Session["LoggedUserID"] == null)
+                return RedirectToAction("Index", "Login");
+            if (ModelState.IsValid)
+            {
+                SQLiteCommand command;
+                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+                using (var m_dbConnection = new SQLiteConnection(connectionString))
+                {
+                    m_dbConnection.Open();
+                    command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
+                    command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
+                    command.Parameters.AddWithValue("@password", cp.OldPassword);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            ViewBag.Message = "Password is not correct!";
+                            return View();
+                        }
+                    }
+                    string sql = "UPDATE tblusers SET password = @password WHERE id = @id";
+                    command = new SQLiteCommand();
+                    command.Parameters.AddWithValue("@id", int.Parse(Session["LoggedUserId"].ToString()));
+                    command.Parameters.AddWithValue("@password", cp.Password);
+                    command.Connection = m_dbConnection;
+                    command.CommandText = sql;
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        m_dbConnection.Close();
+                    }
+                }
+                ViewBag.Message = "Password updated successfully";
+                return View();
+            }
+            return View();
+        }
     }
 }

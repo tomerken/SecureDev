@@ -13,27 +13,32 @@ namespace Vladi2.Controllers
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Error");
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
+                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
+                //using (SQLiteDataReader reader = command.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        int isAdmin = reader.GetInt32(0);
+                //        if (isAdmin != 1)
+                //            return RedirectToAction("Index", "Error");
+                //    }
+                //}
+
+                if (!checkifAdmin())
                 {
-                    while (reader.Read())
-                    {
-                        int isAdmin = reader.GetInt32(0);
-                        if (isAdmin != 1)
-                            return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Error");
                 }
 
                 List<AdminUser> users = new List<AdminUser>();
                 AdminUser u;
 
-                command = new SQLiteCommand("SELECT id, username, isAdmin FROM tblusers", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("SELECT id, username, isAdmin FROM tblusers", m_dbConnection);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -55,25 +60,29 @@ namespace Vladi2.Controllers
         public ActionResult Edit(int id)
         {
             if (Session["LoggedUserName"] == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Error");
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
+                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
+                //using (SQLiteDataReader reader = command.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        int isAdmin = reader.GetInt32(0);
+                //        if (isAdmin != 1)
+                //            return RedirectToAction("Index", "Home");
+                //    }
+                //}
+                if (!checkifAdmin())
                 {
-                    while (reader.Read())
-                    {
-                        int isAdmin = reader.GetInt32(0);
-                        if (isAdmin != 1)
-                            return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Error");
                 }
                 AdminUser u = new AdminUser();
 
-                command = new SQLiteCommand("SELECT id, username, isAdmin FROM tblusers WHERE id = @id", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("SELECT id, username, isAdmin FROM tblusers WHERE id = @id", m_dbConnection);
                 command.Parameters.AddWithValue("@id", id);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
@@ -104,23 +113,27 @@ namespace Vladi2.Controllers
         public ActionResult Edit(AdminUser u)
         {
             if (Session["LoggedUserName"] == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Error");
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
+                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
+                //using (SQLiteDataReader reader = command.ExecuteReader())
+                //{
+                //    while (reader.Read())
+                //    {
+                //        int isAdmin = reader.GetInt32(0);
+                //        if (isAdmin != 1)
+                //            return RedirectToAction("Index", "Home");
+                //    }
+                //}
+                if (!checkifAdmin())
                 {
-                    while (reader.Read())
-                    {
-                        int isAdmin = reader.GetInt32(0);
-                        if (isAdmin != 1)
-                            return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Error");
                 }
-                command = new SQLiteCommand("UPDATE tblusers SET isAdmin = @isAdmin WHERE id = @id", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("UPDATE tblusers SET isAdmin = @isAdmin WHERE id = @id", m_dbConnection);
                 command.Parameters.AddWithValue("@id", u.ID);
                 command.Parameters.AddWithValue("@isAdmin", u.isAdmin);
                 try
@@ -137,6 +150,30 @@ namespace Vladi2.Controllers
                 }
                 return RedirectToAction("Index");
             }
+        }
+
+        private bool checkifAdmin()
+        {
+            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+            using (var m_dbConnection = new SQLiteConnection(connectionString))
+            {
+                m_dbConnection.Open();
+                SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
+                command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int isAdmin = reader.GetInt32(0);
+                        if (isAdmin != 1)
+                            return false;
+                        else
+                            return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
