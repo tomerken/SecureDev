@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Linq;
 using System.Web;
@@ -26,7 +27,7 @@ namespace Vladi2.Controllers
 
             if (ModelState.IsValid)
             {
-                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+                var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();

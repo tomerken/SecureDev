@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
 namespace Vladi2.Models
 {
-    public class Pet
+    
+    public class Information
     {
-        public int PetID { get; set; }
+
+        public int ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string PetName { get; set; }
-        public decimal Price { get; set; }
         public string PetType { get; set; }
-        public int Amount{ get; set; }
+
     }
 }

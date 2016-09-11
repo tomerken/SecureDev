@@ -1,0 +1,20 @@
+﻿@model Vladi2.Models.Information
+
+@{
+    ViewBag.Title = "Information";
+}
+
+<h2>Information</h2>
+
+@using (Html.BeginForm("Index", "Information", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    <div id="infoTable"></div>
+
+}
+
+
+
+@section scripts {
+    <script src="~/scripts/scriptInformation.js"></script>
+}
+

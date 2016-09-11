@@ -146,7 +146,10 @@
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\CreditController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +160,8 @@
     <Compile Include="Models\homeVM.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Pet.cs" />
+    <Compile Include="Models\Information.cs" />
+    <Compile Include="Models\Credit.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +186,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scriptHome.js" />
+    <Content Include="Scripts\scriptInformation.js" />
+    <Content Include="Scripts\scriptShop.js" />
     <Content Include="Scripts\scriptUser.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -207,6 +214,10 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\UserProfile\ChangePassword.cshtml" />
+    <Content Include="Views\Shop\Stage1.cshtml" />
+    <Content Include="Views\Shop\Stage3.cshtml" />
+    <Content Include="Views\Information\Index.cshtml" />
+    <None Include="Views\Shop\Stage2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\profile\" />
