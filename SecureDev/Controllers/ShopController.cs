@@ -21,7 +21,7 @@ namespace Vladi2.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetStage1PetsTypes()
+        public ActionResult GetStage1PetTypes()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             List<string> petTypeList = new List<string>();
@@ -44,17 +44,51 @@ namespace Vladi2.Controllers
         }
         
         [HttpGet]
-        public ActionResult GetStage1PetsNames(string petName)
+        public ActionResult GetStage1PetNames(string petType)
         {
-            return null;
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+            List<string> petNameList = new List<string>();
+            using (var m_dbConnection = new SQLiteConnection(connectionString))
+            {
+                m_dbConnection.Open();
+                SQLiteCommand command = new SQLiteCommand("select petName from tblPetsLookup where petType = @petType", m_dbConnection);
+                command.Parameters.AddWithValue("@petType", petType);
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        petNameList.Add(reader.GetString(0).Trim());
+                    }
+                }
+
+                JavaScriptSerializer jss = new JavaScriptSerializer();
+                string output = jss.Serialize(petNameList);
+                return Content(output);
+            }
         }
 
         [HttpGet]
-        public ActionResult GetStage1PetPrice(string price)
+        public ActionResult GetStage1PetPrice(string petName)
         {
-            if (Session["LoggedUserID"] == null)
-                return RedirectToAction("Index", "Login");
-            return View();
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+            List<string> petPriceList = new List<string>();
+            using (var m_dbConnection = new SQLiteConnection(connectionString))
+            {
+                m_dbConnection.Open();
+                SQLiteCommand command = new SQLiteCommand("select petPrice from tblPetsLookup where petName = @petName", m_dbConnection);
+                command.Parameters.AddWithValue("@petName", petName);
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        petPriceList.Add(reader.GetDecimal(0).ToString());
+                    }
+                }
+
+                JavaScriptSerializer jss = new JavaScriptSerializer();
+                string output = jss.Serialize(petPriceList);
+                return Content(output);
+            }
         }
 
         // GET: Stage2
@@ -62,8 +96,8 @@ namespace Vladi2.Controllers
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
-            if (Session["Step1"] == null)
-                return RedirectToAction("Stage1", "Shop");
+            //if (Session["Step1"] == null)
+            //    return RedirectToAction("Stage1", "Shop");
             return View();
         }
 
@@ -72,8 +106,8 @@ namespace Vladi2.Controllers
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
-            if (Session["Step1"] == null || Session["Step2"] == null)
-                return RedirectToAction("Stage1", "Shop");
+            //if (Session["Step1"] == null || Session["Step2"] == null)
+            //    return RedirectToAction("Stage1", "Shop");
             return View();
         }
     }

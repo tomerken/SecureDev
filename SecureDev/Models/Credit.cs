@@ -13,7 +13,7 @@ namespace Vladi2.Models
 
         [ScaffoldColumn(false)]
         [Required(ErrorMessage = "ID is a required field")]
-        [StringLength(8, MinimumLength = 8, ErrorMessage = "Id needs to be 8 digits")]
+        [StringLength(9, MinimumLength = 9, ErrorMessage = "Id needs to be 9 digits")]
         [Display(Name = "ID")]
         public int UserId{ get; set; }
 
@@ -27,7 +27,7 @@ namespace Vladi2.Models
         [Required(ErrorMessage = "Card Number is a required field")]
         [StringLength(16, MinimumLength = 8, ErrorMessage = "3 digits in the back of the card")]
         [Display(Name = "3 Digits")]
-        public string FirstName { get; set; }
+        public string BehindDigits { get; set; }
 
 
         

@@ -162,6 +162,7 @@
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Information.cs" />
     <Compile Include="Models\Credit.cs" />
+    <Compile Include="Models\SummeryShop.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

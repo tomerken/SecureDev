@@ -1,14 +1,27 @@
-﻿@model Vladi2.Models.User
+﻿@model Vladi2.Models.SummeryShop
 
 @{
     ViewBag.Title = "Stage3";
 }
 
-<h2>Shop</h2>
+<h2>Step3</h2>
 
 @using (Html.BeginForm("Stage3", "Shop", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-    {
-
+{
+    <div>
+        @* dont know how to bring the stuff here *@
+        @*@Html.LabelFor(a => a.FirstName)
+        @Html.LabelFor(a => a.LastName)
+        @Html.LabelFor(a => a.Email)
+        @Html.LabelFor(a => a.Phone)
+        @Html.LabelFor(a => a.CreditNumber)*@
+        @* need to insert here the total price with ViewBag or same bullshit *@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
 @section Scripts {
