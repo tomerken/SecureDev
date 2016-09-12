@@ -31,7 +31,7 @@ namespace Vladi2.Controllers
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("select u.id, u.firstName, u.LastName, p.petName, p.petType from tbluserPets up left join tblusers u on up.userId = u.id left join tblpets p on up.petId = p.petId where u.id = @userid", m_dbConnection);
-                command.Parameters.AddWithValue("@userId", 28);
+                command.Parameters.AddWithValue("@userId", Session["LoggedUserID"].ToString());
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
