@@ -11,6 +11,5 @@ namespace Vladi2.Models
         public string PetName { get; set; }
         public decimal Price { get; set; }
         public string PetType { get; set; }
-        public int Amount{ get; set; }
     }
 }

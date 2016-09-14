@@ -1,8 +1,7 @@
 ﻿$(document).ready(function () {
     getPetTypes();
-    getPetNames("Dog");
-    getPetPrice("Amstaf");
-    zero();
+    getPetNames("dog");
+    getPetPrice("amstaf");
 });
 
 /* ===== event handling ===== */
@@ -28,7 +27,6 @@ $('#Amount').on('change', function () {
 function getPetTypes() {
     $.get("/Shop/GetStage1PetTypes", function (data) {
         buildPetTypesDropDownList(data);
-        zero();
     });
 }
 
@@ -56,7 +54,6 @@ function buildPetTypesDropDownList(data) {
 function getPetNames(petType) {
     $.get("/Shop/GetStage1PetNames?petType=" + petType, function (data) {
         buildPetNamesDropDownList(data);
-        zero();
     });
 }
 
@@ -91,7 +88,6 @@ function buildPetNamesDropDownList(data) {
 function getPetPrice(petName) {
     $.get("/Shop/GetStage1PetPrice?petName=" + petName, function (data) {
         buildPetPrice(data);        
-        zero();
     });
 }
 
@@ -103,21 +99,3 @@ function buildPetPrice(data) {
 /* ========================= */
 
 
-/* ======= GENERAL ========= */
-
-function updateTotalPrice(amount) {
-    //get price
-    var price = $("#price").text();
-    //multiple the amount with the price
-    var totalPrice = amount * price;
-    if (totalPrice < 0)
-        $("#totalPrice").text(0);
-    else
-        //insert the value into the label of total price
-        $("#totalPrice").text(totalPrice);
-}
-
-function zero() {
-    updateTotalPrice(0);
-    $("#Amount").val(0);
-}

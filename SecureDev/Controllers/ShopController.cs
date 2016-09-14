@@ -21,6 +21,7 @@ namespace Vladi2.Controllers
         }
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public ActionResult GetStage1PetTypes()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -28,7 +29,7 @@ namespace Vladi2.Controllers
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select distinct petType from tblPetsLookup", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select distinct petType from tblpets", m_dbConnection);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -44,6 +45,7 @@ namespace Vladi2.Controllers
         }
         
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public ActionResult GetStage1PetNames(string petType)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -51,7 +53,7 @@ namespace Vladi2.Controllers
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select petName from tblPetsLookup where petType = @petType", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select petName from tblpets where petType = @petType", m_dbConnection);
                 command.Parameters.AddWithValue("@petType", petType);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
@@ -68,6 +70,7 @@ namespace Vladi2.Controllers
         }
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public ActionResult GetStage1PetPrice(string petName)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -75,7 +78,7 @@ namespace Vladi2.Controllers
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select petPrice from tblPetsLookup where petName = @petName", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select price from tblpets where petName = @petName", m_dbConnection);
                 command.Parameters.AddWithValue("@petName", petName);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
@@ -101,14 +104,5 @@ namespace Vladi2.Controllers
             return View();
         }
 
-        // GET: Stage3
-        public ActionResult Stage3()
-        {
-            if (Session["LoggedUserID"] == null)
-                return RedirectToAction("Index", "Login");
-            //if (Session["Step1"] == null || Session["Step2"] == null)
-            //    return RedirectToAction("Stage1", "Shop");
-            return View();
-        }
     }
 }

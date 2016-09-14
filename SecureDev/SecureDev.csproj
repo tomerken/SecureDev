@@ -161,8 +161,6 @@
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Information.cs" />
-    <Compile Include="Models\Credit.cs" />
-    <Compile Include="Models\SummeryShop.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -216,9 +214,8 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\UserProfile\ChangePassword.cshtml" />
     <Content Include="Views\Shop\Stage1.cshtml" />
-    <Content Include="Views\Shop\Stage3.cshtml" />
+    <Content Include="Views\Shop\Stage2.cshtml" />
     <Content Include="Views\Information\Index.cshtml" />
-    <None Include="Views\Shop\Stage2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\profile\" />
