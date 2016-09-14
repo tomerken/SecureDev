@@ -17,39 +17,42 @@ namespace Vladi2.Controllers
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
-            return View();
-        }
 
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult GetStage1PetTypes()
-        {
+            var selectBoxs = new ShoppingCert();
+            List<SelectListItem> petTypeList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
-            List<string> petTypeList = new List<string>();
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("select distinct petType from tblpets", m_dbConnection);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
+                    
                     while (reader.Read())
                     {
-                        petTypeList.Add(reader.GetString(0).Trim());
+                        petTypeList.Add(new SelectListItem() { Text = reader.GetString(0).Trim(), Value = reader.GetString(0).Trim()});
                     }
                 }
 
-                JavaScriptSerializer jss = new JavaScriptSerializer();
-                string output = jss.Serialize(petTypeList);
-                return Content(output);
             }
+
+            selectBoxs.PetType = petTypeList;
+            selectBoxs.PetName = new[] { new SelectListItem { Value = "", Text = "" } };
+            return View(selectBoxs);
         }
+
+        //[HttpGet]
+        //public ActionResult GetStage1PetTypes()
+        //{
+
+        //}
         
         [HttpGet]
-        [ValidateAntiForgeryToken]
         public ActionResult GetStage1PetNames(string petType)
         {
+            List<SelectListItem> petNameList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
-            List<string> petNameList = new List<string>();
+
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
@@ -59,22 +62,21 @@ namespace Vladi2.Controllers
                 {
                     while (reader.Read())
                     {
-                        petNameList.Add(reader.GetString(0).Trim());
+                        petNameList.Add(new SelectListItem() { Text = reader.GetString(0).Trim(), Value = reader.GetString(0).Trim() });
                     }
                 }
 
-                JavaScriptSerializer jss = new JavaScriptSerializer();
-                string output = jss.Serialize(petNameList);
-                return Content(output);
+                return Json(petNameList, JsonRequestBehavior.AllowGet);
             }
+
         }
 
         [HttpGet]
-        [ValidateAntiForgeryToken]
         public ActionResult GetStage1PetPrice(string petName)
         {
+            string price = string.Empty;
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
-            List<string> petPriceList = new List<string>();
+            
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
@@ -84,23 +86,55 @@ namespace Vladi2.Controllers
                 {
                     while (reader.Read())
                     {
-                        petPriceList.Add(reader.GetDecimal(0).ToString());
+                        price = reader.GetDecimal(0).ToString();
                     }
                 }
 
-                JavaScriptSerializer jss = new JavaScriptSerializer();
-                string output = jss.Serialize(petPriceList);
-                return Content(output);
+                return Json(price, JsonRequestBehavior.AllowGet);
             }
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Stage2(Object o)
+        //{
+
+        //    Session["shoppingCert"] = new List<object> { new object(), new object() };
+        //    return RedirectToAction("Confirm", "Shop");
+        //}
+        [HttpPost]
+        public ActionResult Stage1(ShoppingCert model)
+        {
+            //need to do validation
+            List<ShoppingCert> sc = new List<ShoppingCert>();
+            sc.Add(model);
+            sc.Add(model);
+            Session["ShoppingCert"] = sc;
+            return RedirectToAction("Confirm", "Shop");
+
+        }
+
         // GET: Stage2
-        public ActionResult Stage2()
+        public ActionResult Confirm()
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
-            //if (Session["Step1"] == null)
-            //    return RedirectToAction("Stage1", "Shop");
+
+            List<ShoppingCert> sc = (List<ShoppingCert>)Session["ShoppingCert"];
+            ViewBag.MyList = sc;
+            return View();
+        }
+
+        // GET: Confirm
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Confirm(ShoppingCert sc)
+        {
+            Console.WriteLine(ViewBag.MyList);
+            if (Session["LoggedUserID"] == null)
+                return RedirectToAction("Index", "Login");
+
+            
             return View();
         }
 

@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
+    <Compile Include="Controllers\ShoppingCertController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +162,7 @@
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Information.cs" />
+    <Compile Include="Models\ShoppingCert.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -214,8 +216,9 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\UserProfile\ChangePassword.cshtml" />
     <Content Include="Views\Shop\Stage1.cshtml" />
-    <Content Include="Views\Shop\Stage2.cshtml" />
+    <Content Include="Views\Shop\Confirm.cshtml" />
     <Content Include="Views\Information\Index.cshtml" />
+    <Content Include="Views\ShoppingCert\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\profile\" />
