@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace Vladi2.Models
 {
 
-    public class ShoppingCert
+    public class ShoppingCart
     {
         public IEnumerable<SelectListItem> PetType { get; set; }
         public string SelectPetType { get; set; }

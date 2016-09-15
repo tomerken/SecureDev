@@ -8,19 +8,24 @@ using Vladi2.Models;
 
 namespace Vladi2.Controllers
 {
-    public class ShoppingCertController : BaseController
+    public class ShoppingCartController : BaseController
     {
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
 
-            List<ShoppingCert> sc = (List<ShoppingCert>)Session["ShoppingCert"];
-            ViewBag.MyList = sc;
-            return View();
+            if(Session["Cart"] == null)
+            {
+                ViewBag.Message = "No items in cart";
+                return View();
+            }
+
+            else
+            {
+                List<CartItem> list = (List<CartItem>)Session["Cart"];
+                return View(list);
+            }
         }
-
-
-
     }
 }

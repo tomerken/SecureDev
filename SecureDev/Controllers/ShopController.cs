@@ -18,7 +18,7 @@ namespace Vladi2.Controllers
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
 
-            var selectBoxs = new ShoppingCert();
+            var selectBoxs = new ShoppingCart();
             List<SelectListItem> petTypeList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
@@ -41,12 +41,7 @@ namespace Vladi2.Controllers
             return View(selectBoxs);
         }
 
-        //[HttpGet]
-        //public ActionResult GetStage1PetTypes()
-        //{
-
-        //}
-        
+       
         [HttpGet]
         public ActionResult GetStage1PetNames(string petType)
         {
@@ -94,33 +89,64 @@ namespace Vladi2.Controllers
             }
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Stage2(Object o)
-        //{
-
-        //    Session["shoppingCert"] = new List<object> { new object(), new object() };
-        //    return RedirectToAction("Confirm", "Shop");
-        //}
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Stage1(ShoppingCert model)
+        public ActionResult AddToCart(FormCollection form)
         {
-            //need to do validation
-            List<ShoppingCert> sc = new List<ShoppingCert>();
-            sc.Add(model);
-            sc.Add(model);
-            Session["ShoppingCert"] = sc;
-            return RedirectToAction("Confirm", "Shop");
+            if (Session["LoggedUserID"] == null)
+                return RedirectToAction("Index", "Login");
 
+            string petType;
+            string petName;
+            bool success = false;
+            // getting the price from the database and not from the form!
+            int price;
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+            using (var m_dbConnection = new SQLiteConnection(connectionString))
+            {
+                m_dbConnection.Open();
+                SQLiteCommand command = new SQLiteCommand("select petName, petType, price from tblpets where petName = @name AND petType = @type", m_dbConnection);
+                command.Parameters.AddWithValue("name", form["selectpetname"].ToString());
+                command.Parameters.AddWithValue("type", form["selectpettype"].ToString());
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        // selecting petName and petType back from database - if they passed the prepare statement
+                        // they will be returned from database correctly and setting success as true
+                        success = true;
+                        petName = reader.GetString(0);
+                        petType = reader.GetString(1);
+                        price = reader.GetInt32(2);
+                        if (Session["Cart"] == null)
+                        {
+                            Session["Cart"] = new List<CartItem>();
+                        }
+                         ((List<CartItem>)Session["Cart"]).Add(new CartItem(petName, petType, price));
+                    }
+                }
+
+            }
+            // the values posted were actually in database and not some attack
+            if(success)
+            {
+                ViewBag.AddToCartMessage = "Successfuly added the item to cart";
+                return RedirectToAction("Stage1");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Error");
+            }
         }
 
-        // GET: Stage2
+        // GET: Confirm
         public ActionResult Confirm()
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
 
-            List<ShoppingCert> sc = (List<ShoppingCert>)Session["ShoppingCert"];
+            List<ShoppingCart> sc = (List<ShoppingCart>)Session["ShoppingCart"];
             ViewBag.MyList = sc;
             return View();
         }
@@ -128,7 +154,7 @@ namespace Vladi2.Controllers
         // GET: Confirm
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Confirm(ShoppingCert sc)
+        public ActionResult Confirm(ShoppingCart sc)
         {
             Console.WriteLine(ViewBag.MyList);
             if (Session["LoggedUserID"] == null)

@@ -150,19 +150,20 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
-    <Compile Include="Controllers\ShoppingCertController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminUser.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\ForumMessage.cs" />
     <Compile Include="Models\homeVM.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Information.cs" />
-    <Compile Include="Models\ShoppingCert.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,7 +219,7 @@
     <Content Include="Views\Shop\Stage1.cshtml" />
     <Content Include="Views\Shop\Confirm.cshtml" />
     <Content Include="Views\Information\Index.cshtml" />
-    <Content Include="Views\ShoppingCert\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\profile\" />

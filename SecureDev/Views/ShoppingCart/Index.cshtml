@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Vladi2.Models.CartItem>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+
+
+@if (Model == null)
+{
+    @ViewBag.Message
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.petName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.petType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.petName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.petType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

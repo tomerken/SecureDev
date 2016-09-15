@@ -1,4 +1,4 @@
-﻿@model Vladi2.Models.ShoppingCert
+﻿@model Vladi2.Models.ShoppingCart
 
 @{
     ViewBag.Title = "Stage1";
@@ -6,7 +6,7 @@
 
 <h2>Step1</h2>
 
-@using (Html.BeginForm("Stage1", "Shop", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -16,12 +16,15 @@
 
         @Html.DropDownListFor(x => x.SelectPetType, new SelectList(Model.PetType, "Value", "Text"), "Select Pet Type")
         @Html.DropDownListFor(x => x.SelectPetName, new SelectList(Model.PetName, "Value", "Text"), "Select Pet Name")
-        @Html.EditorFor(x => x.SelectPrice, new { htmlAttributes = new { @class = "form-control" } })
-        <button type="button">Add</button>
-        <button type="submit">Next</button>
+        @Html.TextBoxFor(x => x.SelectPrice, new { disabled = "disabled" })
+        
+        <button type="submit">Add to cart</button>
 
     </div>
 }
+
+@ViewBag.AddToCartMessage
+@Html.ActionLink("Move to order confirmation", "Confirm", "Confirm");
 @section scripts {
     <script src="~/scripts/scriptShop.js"></script>
 }
