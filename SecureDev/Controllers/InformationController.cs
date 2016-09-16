@@ -16,40 +16,39 @@ namespace Vladi2.Controllers
         {
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
-            return View();
-        }
 
-        [HttpGet]
-        //need to get id of user !!!
-        public ActionResult GetInfo(User u)
-        {
-            
+            string petType;
+            string petName;
+            int Id;
+            decimal price;
+            List<Information> infoList = new List<Information>(); 
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
-            List<Information> infos = new List<Information>();
-            Information info;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select u.id, u.firstName, u.LastName, p.petName, p.petType from tbluserPets up left join tblusers u on up.userId = u.id left join tblpets p on up.petId = p.petId where u.id = @userid", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select u.id, p.petName, p.petType, p.price from tbluserPets up left join tblusers u on up.userId = u.id left join tblpets p on up.petId = p.petId where u.id = @userid", m_dbConnection);
                 command.Parameters.AddWithValue("@userId", Session["LoggedUserID"].ToString());
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows) { 
+                        while (reader.Read())
+                        {
+                            Id = reader.GetInt32(0);
+                            petName = reader.GetString(1);
+                            petType = reader.GetString(2);
+                            price = reader.GetDecimal(3);
+                            
+                            infoList.Add(new Information(Id, petName, petType, price));
+                        }
+                    }
+                    else
                     {
-                        info = new Information();
-                        // adding inforamtion to the list
-                        info.ID = reader.GetInt32(0);
-                        info.FirstName = reader.GetString(1).Trim();
-                        info.LastName = reader.GetString(2).Trim();
-                        info.PetName = reader.GetString(3).Trim();
-                        info.PetType = reader.GetString(4).Trim();
-                        infos.Add(info);
+                        ViewBag.Message = "No purchase";
+                        return View();
                     }
                 }
 
-                JavaScriptSerializer jss = new JavaScriptSerializer();
-                string output = jss.Serialize(infos);
-                return Content(output);
+                return View(infoList);
             }
         }
     }

@@ -98,6 +98,7 @@ namespace Vladi2.Controllers
 
             string petType;
             string petName;
+            int petId;
             bool success = false;
             // getting the price from the database and not from the form!
             int price;
@@ -105,7 +106,7 @@ namespace Vladi2.Controllers
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select petName, petType, price from tblpets where petName = @name AND petType = @type", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select petName, petType, price, petId  from tblpets where petName = @name AND petType = @type", m_dbConnection);
                 command.Parameters.AddWithValue("name", form["selectpetname"].ToString());
                 command.Parameters.AddWithValue("type", form["selectpettype"].ToString());
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -119,11 +120,12 @@ namespace Vladi2.Controllers
                         petName = reader.GetString(0);
                         petType = reader.GetString(1);
                         price = reader.GetInt32(2);
+                        petId = reader.GetInt32(3);
                         if (Session["Cart"] == null)
                         {
                             Session["Cart"] = new List<CartItem>();
                         }
-                         ((List<CartItem>)Session["Cart"]).Add(new CartItem(petName, petType, price));
+                         ((List<CartItem>)Session["Cart"]).Add(new CartItem(petId, petName, petType, price));
                     }
                 }
 
@@ -146,21 +148,42 @@ namespace Vladi2.Controllers
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
 
-            List<ShoppingCart> sc = (List<ShoppingCart>)Session["ShoppingCart"];
-            ViewBag.MyList = sc;
-            return View();
+            List<CartItem> list = (List<CartItem>)Session["Cart"];
+            if(list == null)
+            {
+                ViewBag.Message = "No items in cart";
+                return View();
+            }
+            return View(list);
         }
 
-        // GET: Confirm
-        [HttpPost]
+        // Post: Confirm
         [ValidateAntiForgeryToken]
-        public ActionResult Confirm(ShoppingCart sc)
+        [HttpPost]
+        public ActionResult Buy()
         {
-            Console.WriteLine(ViewBag.MyList);
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
+            List<CartItem> cartItemList = (List<CartItem>)Session["Cart"];
+            if (cartItemList == null)
+            {
+                ViewBag.Message = "No purchase";
+                return View();
+            }
 
-            
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
+            using (var m_dbConnection = new SQLiteConnection(connectionString))
+            {
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO tbluserPets  (userId,petId) VALUES (@userId,@PetId)", m_dbConnection);
+
+                foreach (CartItem currItem in cartItemList)
+                {
+                    command.Parameters.AddWithValue("@userId", Session["LoggedUserID"]);
+                    command.Parameters.AddWithValue("@PetId", currItem.petId);
+                    command.ExecuteNonQuery();
+                }                
+            }
+
             return View();
         }
 
