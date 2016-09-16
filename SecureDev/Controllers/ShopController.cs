@@ -165,26 +165,28 @@ namespace Vladi2.Controllers
             if (Session["LoggedUserID"] == null)
                 return RedirectToAction("Index", "Login");
             List<CartItem> cartItemList = (List<CartItem>)Session["Cart"];
+            string userId = Session["LoggedUserID"].ToString();
             if (cartItemList == null)
             {
-                ViewBag.Message = "No purchase";
+                ViewBag.Message = "No purchaser";
                 return View();
             }
 
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
-                SQLiteCommand command = new SQLiteCommand("INSERT INTO tbluserPets  (userId,petId) VALUES (@userId,@PetId)", m_dbConnection);
+                m_dbConnection.Open();
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO tbluserPets (userId,petId) VALUES (@userId,@PetId)", m_dbConnection);
 
                 foreach (CartItem currItem in cartItemList)
                 {
-                    command.Parameters.AddWithValue("@userId", Session["LoggedUserID"]);
+                    command.Parameters.AddWithValue("@userId", userId);
                     command.Parameters.AddWithValue("@PetId", currItem.petId);
                     command.ExecuteNonQuery();
-                }                
+                }
             }
-
-            return View();
+            Session["Cart"] = null;
+            return RedirectToAction("Index", "Information");
         }
 
     }

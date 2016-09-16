@@ -18,15 +18,27 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Registration", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Forum", "Index", "Forum", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Profile", "Index", "UserProfile", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Shop", "Stage1", "Shop", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Info", "Index", "Information", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("ShoppingCart", "Index", "ShoppingCart", new { area = "" }, new { @class = "navbar-brand" })
-                @*@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                
+                @if (Session["LoggedUserID"] == null)
+                {
+                    @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Registration", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Forum", "Index", "Forum", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Shop", "Stage1", "Shop", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Info", "Index", "Information", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("ShoppingCart", "Index", "ShoppingCart", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Profile", "Index", "UserProfile", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                @if (Session["IsAdmin"] != null)
+                {
+                    @Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                }
+}
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

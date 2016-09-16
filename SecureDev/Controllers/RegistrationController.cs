@@ -87,7 +87,7 @@ namespace Vladi2.Controllers
                         throw new Exception(ex.Message);
                     }
                 }
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "Information");
             }
             return View();
         }

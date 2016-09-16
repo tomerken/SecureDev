@@ -42,6 +42,9 @@ namespace Vladi2.Controllers
                             Session["LoggedUserId"] = reader.GetInt32(0);
                             string userName = reader.GetString(1).Trim();
                             Session["LoggedUserName"] = userName;
+                            int isAdmin = reader.GetInt32(8);
+                            if (isAdmin == 1)
+                                Session["IsAdmin"] = 1;
                             return RedirectToAction("Index", "Home");
                         }
                     }
