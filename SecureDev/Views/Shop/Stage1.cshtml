@@ -13,18 +13,48 @@
     <div class="form-horizontal">
         <h4>Welcome to the Shop</h4>
         <hr />
-
-        @Html.DropDownListFor(x => x.SelectPetType, new SelectList(Model.PetType, "Value", "Text"), "Select Pet Type")
-        @Html.DropDownListFor(x => x.SelectPetName, new SelectList(Model.PetName, "Value", "Text"), "Select Pet Name")
-        @Html.TextBoxFor(x => x.SelectPrice, new { disabled = "disabled" })
-        
-        <button type="submit">Add to cart</button>
-
-    </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-group">
+                        @Html.Label("Pet Type", new { @class = "col-md-3 control-label" })
+                        @Html.DropDownListFor(x => x.SelectPetType, new SelectList(Model.PetType, "Value", "Text"), "Select Pet Type", new { @class = "col-md-9 form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Pet Name", new { @class = "col-md-3 control-label" })
+                    @Html.DropDownListFor(x => x.SelectPetName, new SelectList(Model.PetName, "Value", "Text"), "Select Pet Name", new { @class = "col-md-9 form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Price", new { @class = "col-md-3 control-label" })
+                    @Html.TextBoxFor(x => x.SelectPrice, new { disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        @Html.ActionLink("Move to order confirmation", "Confirm", "Shop", new { @class = "btn btn-success" })
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
 }
 
 @ViewBag.AddToCartMessage
-@Html.ActionLink("Move to order confirmation", "Confirm", "Shop");
+
 @section scripts {
     <script src="~/scripts/scriptShop.js"></script>
 }
