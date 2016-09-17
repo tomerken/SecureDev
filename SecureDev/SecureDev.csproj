@@ -230,7 +230,7 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\profile\" />
+    <Folder Include="images\" />
     <Folder Include="Sqlite\" />
   </ItemGroup>
   <ItemGroup>
