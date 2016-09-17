@@ -13,7 +13,6 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>AdminUser</h4>
             <hr />
 
             <div class="container-fluid">
@@ -38,18 +37,17 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
+                        <div class="col-md-offset-2 col-md-1">
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })                            
+                        </div>
+                        <div class="col-md-offset-2 col-md-1">
+                            <input type="submit" value="Save" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 }
 else
 {

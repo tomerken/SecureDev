@@ -109,7 +109,9 @@ namespace Vladi2.Controllers
                             return View();
                         }
                         string guid = Guid.NewGuid().ToString();
-                        fileName = System.IO.Path.Combine(@"D:\SecureDev\SecureDev_Resources\images\profile\", guid + extension);
+                        string path = @"C:\Users\K2View\SecureDev\SecureDev_Resources\images\profile\";
+                        //string path = @"D:\SecureDev\SecureDev_Resources\images\profile\";
+                        fileName = System.IO.Path.Combine(path, guid + extension);
                         pictureFile.SaveAs(fileName);
                         fileName = guid + extension;
                         sql += ", picture = @picture";

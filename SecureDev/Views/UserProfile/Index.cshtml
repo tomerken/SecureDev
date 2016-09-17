@@ -76,16 +76,18 @@
         </div>
 
         <div>
-            @Html.ActionLink("Change Password", "ChangePassword")
+            
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-                    <div style="color:@ViewBag.Color">@ViewBag.Message</div>
+            <div class="col-md-offset-2 col-md-1">
+                @Html.ActionLink("Change Password", "ChangePassword", null, new { @class = "btn btn-default" })
+            </div>
+            <div class="col-md-offset-2 col-md-1">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <div style="color:@ViewBag.Color">@ViewBag.Message</div>
             </div>
         </div>
-
     </div>
 }
 
