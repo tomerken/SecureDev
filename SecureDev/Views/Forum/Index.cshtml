@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<Vladi2.Models.ForumMessage>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Forum";
 }
 <div class="row">
     <div class="col-md-10">
-        <h2>Index</h2>
+        <h2>Forum</h2>
     </div>
+    <br />
     <div class="col-md-2">
-        @Html.ActionLink("Post a new message", "Create")
+        @Html.ActionLink("Post a new message", "Create", null, new { @class = "btn btn-primary" } )
     </div>
 </div>
 

@@ -7,6 +7,7 @@ namespace Vladi2.Models
 {
     public class Pet
     {
+        // A model for a pet
         public int PetID { get; set; }
         public string PetName { get; set; }
         public decimal Price { get; set; }

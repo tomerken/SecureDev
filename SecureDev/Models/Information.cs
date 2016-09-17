@@ -8,6 +8,7 @@ namespace Vladi2.Models
     
     public class Information
     {
+        // A model for a user information page
         public Information(int Id, string petName, string petType, decimal Price)
         {
             this.ID = Id;

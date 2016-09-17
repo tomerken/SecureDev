@@ -7,6 +7,7 @@ namespace Vladi2.Models
 {
     public class Logging
     {
+        // The main logging class
         private Logging() { }
         public enum AccessType { Unauthorized, Anonymous, Valid, Invalid};
         public static void Log(string message, AccessType access)
@@ -14,7 +15,7 @@ namespace Vladi2.Models
             //David
             string davidPath= @"C:\Users\K2View\SecureDev\SecureDev_Resources\log.txt";
             string tomerPath = @"D:\SecureDev\SecureDev_Resources\log.txt";
-            using (System.IO.StreamWriter log = new System.IO.StreamWriter(davidPath, true))
+            using (System.IO.StreamWriter log = new System.IO.StreamWriter(tomerPath, true))
             {
                 log.Write(System.DateTime.Now + " ");
                 log.WriteLine("The request has been made from client ip address " + HttpContext.Current.Request.UserHostAddress);

@@ -7,6 +7,7 @@ namespace Vladi2.Models
 {
     public class AdminUser
     {
+        // A model for admin user
         public int ID { get; set; }
         public string Username { get; set; }
         public int isAdmin { get; set; }

@@ -10,7 +10,8 @@ namespace Vladi2.Controllers
 {
     public class RegistrationController : BaseController
     {
-        // GET: Registration
+        // Registration Page
+        // Get the main registration page
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] != null)
@@ -18,6 +19,7 @@ namespace Vladi2.Controllers
             return View();
         }
 
+        // Post a new registration
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(User u)

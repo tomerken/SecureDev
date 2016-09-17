@@ -14,12 +14,13 @@ namespace Vladi2.Controllers
 {
     public class HomeController : BaseController
     {
-        //entry point for main page as determined in the route config
+        // The main application page
         public ActionResult Index()
         {
             return View();
         }
 
+        // Returns json of the searched pet name
         [HttpGet]
         public ActionResult Search(String name)
         {

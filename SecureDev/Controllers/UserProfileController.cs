@@ -10,6 +10,7 @@ namespace Vladi2.Controllers
 {
     public class UserProfileController : BaseController
     {
+        // The user profile page
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)
@@ -46,6 +47,7 @@ namespace Vladi2.Controllers
             return View(user);
         }
 
+        // Change the profile
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(User u)
@@ -133,6 +135,7 @@ namespace Vladi2.Controllers
             }
             return View();
         }
+        // Change the password page
         public ActionResult ChangePassword()
         {
             if (Session["LoggedUserID"] == null)
@@ -142,6 +145,8 @@ namespace Vladi2.Controllers
             }
             return View();
         }
+
+        // Post a new password for the user
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(ChangePassword cp)

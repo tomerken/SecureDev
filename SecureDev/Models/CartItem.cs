@@ -7,6 +7,7 @@ namespace Vladi2.Models
 {
     public class CartItem
     {
+        // A model that represents a cart item
         public CartItem (int petId, string petName, string petType, int Price)
         {
             this.petId = petId;

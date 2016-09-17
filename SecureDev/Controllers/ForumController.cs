@@ -11,7 +11,9 @@ namespace Vladi2.Controllers
 {
     public class ForumController : BaseController
     {
-        // GET: Forum
+        // Controller for Forum Page
+
+        // Retreive the main forum page
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] == null)
@@ -44,6 +46,7 @@ namespace Vladi2.Controllers
             return View(msgs);
         }
 
+        // Retrieve the reate a new forum message page
         public ActionResult Create()
         {
             if (Session["LoggedUserName"] == null)
@@ -55,6 +58,7 @@ namespace Vladi2.Controllers
             return View();
         }
 
+        // Post a new forum message
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ForumMessage msg)

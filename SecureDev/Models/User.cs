@@ -8,6 +8,7 @@ namespace Vladi2.Models
     
     public class User
     {
+        // A model for a user registration
         [ScaffoldColumn(false)]
         public int ID { get; set; }
         [Required(ErrorMessage = "Username is a required field")]

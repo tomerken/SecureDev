@@ -12,6 +12,8 @@ namespace Vladi2.Controllers
 {
     public class InformationController : BaseController
     {
+        // Controller for the information page
+        // Retrieve the main information page
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)

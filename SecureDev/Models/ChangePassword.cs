@@ -8,6 +8,7 @@ namespace Vladi2.Models
 {
     public class ChangePassword
     {
+        // A model that represents a change password scenario
         [Required(ErrorMessage = "Password is a required field")]
         [DataType(DataType.Password)]
         [StringLength(12, MinimumLength = 5, ErrorMessage = "Password length must be at least 5 characters and at most 12 characters")]

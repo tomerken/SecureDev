@@ -4,12 +4,14 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
 {
     public class ShoppingCartController : BaseController
     {
+        // The shopping cart page
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)
@@ -33,9 +35,11 @@ namespace Vladi2.Controllers
             }
         }
 
+        // Remove an item from the shopping cart
         [HttpGet]
         public ActionResult RemoveItem(String petId)
         {
+            string petIDXSS = AntiXssEncoder.HtmlEncode(petId, true);
             if (Session["LoggedUserID"] == null)
             {
                 Logging.Log("Shopping Cart page", Logging.AccessType.Anonymous);
@@ -47,7 +51,7 @@ namespace Vladi2.Controllers
 
             try
             {
-                _petId = Int32.Parse(petId);
+                _petId = Int32.Parse(petIDXSS);
             }catch{
                 Logging.Log("ShopController Remove item : attempt to remove item with non numeric type", Logging.AccessType.Invalid);
                 return RedirectToAction("Index");
@@ -59,7 +63,10 @@ namespace Vladi2.Controllers
                 {
                     list.Remove(currCartItem);
                     Logging.Log("ShopController Remove item : removed item", Logging.AccessType.Valid);
-                    Session["Cart"] = list;
+                    if (list.Count != 0)
+                        Session["Cart"] = list;
+                    else
+                        Session["Cart"] = null;
                     return RedirectToAction("Index");
                 }
             }

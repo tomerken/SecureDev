@@ -13,7 +13,8 @@ namespace Vladi2.Controllers
 {
     public class ShopController : BaseController
     {
-        // GET: Stage1
+        // The shopping page
+        // First stage of the shop - choosing what to buy
         public ActionResult Stage1()
         {
             if (Session["LoggedUserID"] == null)
@@ -50,10 +51,15 @@ namespace Vladi2.Controllers
             return View(selectBoxs);
         }
 
-       
+        // Returns the pet names in the application by pet type
         [HttpGet]
         public ActionResult GetStage1PetNames(string petType)
         {
+            if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Get stage1 pet names", Logging.AccessType.Anonymous);
+                return RedirectToAction("Index", "Login");
+            }
             string petTypeXSS = AntiXssEncoder.HtmlEncode(petType, true);
             List<SelectListItem> petNameList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -76,9 +82,15 @@ namespace Vladi2.Controllers
 
         }
 
+        // Returns the pet price for each pet name
         [HttpGet]
         public ActionResult GetStage1PetPrice(string petName)
         {
+            if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Get stage1 price page", Logging.AccessType.Anonymous);
+                return RedirectToAction("Index", "Login");
+            }
             string petNameXSS = AntiXssEncoder.HtmlEncode(petName, true);
             string price = string.Empty;
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -100,6 +112,7 @@ namespace Vladi2.Controllers
             }
         }
 
+        // Adding to the cart a new pet
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult AddToCart(FormCollection form)
@@ -109,9 +122,6 @@ namespace Vladi2.Controllers
                 Logging.Log("Add to cart in shop page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
             }
-
-            string g = form["selectpetname"];
-            string v = form["selectpettype"];
 
             if (form["selectpetname"] == null || form["selectpettype"] == null || form["selectpetname"].ToString() == "" || form["selectpettype"].ToString() == "")
             {
@@ -130,7 +140,7 @@ namespace Vladi2.Controllers
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                SQLiteCommand command = new SQLiteCommand("select petName, petType, price, petId  from tblpets where petName = @name AND petType = @type", m_dbConnection);
+                SQLiteCommand command = new SQLiteCommand("select petName, petType, price, petId from tblpets where petName = @name AND petType = @type", m_dbConnection);
                 command.Parameters.AddWithValue("name", form["selectpetname"].ToString());
                 command.Parameters.AddWithValue("type", form["selectpettype"].ToString());
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -139,7 +149,6 @@ namespace Vladi2.Controllers
                     {
                         while (reader.Read())
                         {
-
                             // selecting petName and petType back from database - if they passed the prepare statement
                             // they will be returned from database correctly and setting success as true
                             success = true;
@@ -174,7 +183,7 @@ namespace Vladi2.Controllers
             }
         }
 
-        // GET: Confirm
+        // The confirmation page
         public ActionResult Confirm()
         {
             if (Session["LoggedUserID"] == null)
@@ -192,7 +201,7 @@ namespace Vladi2.Controllers
             return View(list);
         }
 
-        // Post: Confirm
+        // Post: Confirm the order
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Buy()
@@ -203,12 +212,11 @@ namespace Vladi2.Controllers
                 return RedirectToAction("Index", "Login");
             }
             List<CartItem> cartItemList = (List<CartItem>)Session["Cart"];
-            string userId = Session["LoggedUserID"].ToString();
             if (cartItemList == null)
             {
-                ViewBag.Message = "No purchaser";
-                return View();
+                return RedirectToAction("Confirm");
             }
+            string userId = Session["LoggedUserID"].ToString();
 
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))

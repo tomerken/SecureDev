@@ -11,13 +11,16 @@ namespace Vladi2.Controllers
 {
     public class LoginController : BaseController
     {
-        // GET: Login
+        // Login page
+        // Get the main login page
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
         }
+
+        // Post a login to the application
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginUser u)
@@ -58,6 +61,7 @@ namespace Vladi2.Controllers
             return View(u);
         }
 
+        // Logout from the application
         public ActionResult Logout()
         {
             if(Session["LoggedUserId"] != null)

@@ -11,8 +11,12 @@ namespace Vladi2.Controllers
 {
     public class AdminController : BaseController
     {
+        // This controller is responsible for the admin page
+
+        // The main admin page - retrieves the users from the databases and their admin status and shows to the user
         public ActionResult Index()
         {
+            
             if (Session["LoggedUserName"] == null)
             {
                 Logging.Log("Admin page", Logging.AccessType.Anonymous);
@@ -49,6 +53,7 @@ namespace Vladi2.Controllers
                 return View(users);
             }
         }
+        // This method is reponsible for retreiving admin role details for a specific user id
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -97,6 +102,8 @@ namespace Vladi2.Controllers
                 }
             }
         }
+
+        // This method is reponsible for posting admin role details for a specific user id
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(AdminUser u)
@@ -135,6 +142,8 @@ namespace Vladi2.Controllers
             }
         }
 
+
+        // method for checking if a logged in user is an admin
         private bool checkifAdmin()
         {
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;

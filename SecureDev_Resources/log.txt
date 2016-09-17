@@ -1165,3 +1165,291 @@ Successful login to the shoppingcart page
 17/09/2016 16:40:02 The request has been made from client ip address ::1
 A valid request has been attempted by hellllo : 
 User profile page
+17/09/2016 18:11:23 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test credentials
+17/09/2016 18:11:49 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test2 credentials
+17/09/2016 18:12:15 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:17:22 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 18:18:27 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 18:18:46 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 18:18:56 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin edit page has been done by test2
+17/09/2016 18:19:42 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 18:28:05 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+Forum page
+17/09/2016 18:28:57 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:29:00 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 18:29:21 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 18:33:55 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+Forum page
+17/09/2016 18:34:02 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:34:03 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 18:34:06 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 18:34:07 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the create forum page
+17/09/2016 18:34:08 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+POST : Successful creation of a forum post
+17/09/2016 18:41:50 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:41:51 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 18:41:59 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user test2 attempted to post without the required params 
+17/09/2016 18:41:59 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 18:43:41 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 18:46:38 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:47:34 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:48:45 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 18:48:47 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 18:48:51 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the create forum page
+17/09/2016 18:49:02 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+POST : Successful creation of a forum post
+17/09/2016 18:49:02 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 18:49:10 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User profile page
+17/09/2016 18:59:10 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:00:16 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:00:27 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:00:28 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:00:29 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to information page
+17/09/2016 19:00:30 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:23 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:32 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:01:32 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:35 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:01:35 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:40 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+A successful purchase has been made 
+17/09/2016 19:01:40 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to information page
+17/09/2016 19:01:44 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:01:44 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:47 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:01:47 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:01:49 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+A successful purchase has been made 
+17/09/2016 19:01:49 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to information page
+17/09/2016 19:01:52 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User profile page
+17/09/2016 19:01:59 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to information page
+17/09/2016 19:02:31 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:33 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:02:35 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:02:35 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:02:37 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:02:37 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:02:40 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful add to cart
+17/09/2016 19:02:40 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:02:40 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:42 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+ShopController Remove item : removed item
+17/09/2016 19:02:42 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:44 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+ShopController Remove item : removed item
+17/09/2016 19:02:44 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:46 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+ShopController Remove item : removed item
+17/09/2016 19:02:46 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:47 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to shop page
+17/09/2016 19:02:48 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:02:50 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User profile page
+17/09/2016 19:02:50 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:05 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 19:05:07 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:08 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:11 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 19:05:11 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:12 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:14 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+ShopController Remove item : removed item
+17/09/2016 19:05:14 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:18 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:20 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 19:05:20 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:20 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:22 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:26 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 19:05:26 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:29 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 19:05:29 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:05:30 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:31 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+ShopController Remove item : removed item
+17/09/2016 19:05:31 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:32 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+ShopController Remove item : removed item
+17/09/2016 19:05:32 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:33 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+ShopController Remove item : removed item
+17/09/2016 19:05:33 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 19:05:34 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page

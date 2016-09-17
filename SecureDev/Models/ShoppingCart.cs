@@ -10,6 +10,7 @@ namespace Vladi2.Models
 
     public class ShoppingCart
     {
+        // A model for a shopping cart (for the shop page)
         public IEnumerable<SelectListItem> PetType { get; set; }
         public string SelectPetType { get; set; }
         public IEnumerable<SelectListItem> PetName { get; set; }
