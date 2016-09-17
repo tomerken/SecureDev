@@ -13,40 +13,43 @@
 }
 else
 {
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.petName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.petType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                Remove
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr id="@Html.DisplayFor(modelItem => item.petId)">
-                <td>
-                    @Html.DisplayFor(modelItem => item.petName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.petType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    <a href="@Url.Action("RemoveItem", new { petId = item.petId })">
-                            <span class="glyphicon glyphicon-trash"></span>                        
-                    </a>
-                </td>
+    <div class="tableContainer">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.petName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.petType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    Remove
+                </th>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+                <tr id="@Html.DisplayFor(modelItem => item.petId)">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.petName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.petType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("RemoveItem", new { petId = item.petId })">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 }
+        

@@ -12,35 +12,37 @@
 }
 else
 {
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PetName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetPrice)
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <div class="tableContainer">
+        <table class="table table-bordered table-striped">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PetName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PetType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PetPrice)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.PetName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PetType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PetPrice)
+                </th>
             </tr>
-        }
 
-    </table>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PetName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PetType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PetPrice)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+        }
 
 

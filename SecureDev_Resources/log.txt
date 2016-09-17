@@ -1453,3 +1453,414 @@ Successful login to the shoppingcart page
 17/09/2016 19:05:34 The request has been made from client ip address ::1
 A valid request has been attempted by test : 
 Successful login to shop page
+17/09/2016 19:15:18 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:15:19 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:16:06 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:16:07 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:16:19 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:16:19 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:16:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful purchase has been made 
+17/09/2016 19:16:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:16:29 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:16:32 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:16:35 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:16:41 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST : Successful creation of a forum post
+17/09/2016 19:16:41 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:16:43 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:16:48 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST : Successful creation of a forum post
+17/09/2016 19:16:48 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:16:58 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:18:44 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:18:59 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:19:00 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:19:23 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:19:32 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:19:41 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:19:54 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:20:04 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:20:06 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:20:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the create forum page
+17/09/2016 19:20:14 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST : Successful creation of a forum post
+17/09/2016 19:20:14 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:20:15 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:21:09 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:21:45 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:22:12 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:22:12 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:23:12 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:23:14 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:23:15 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:23:18 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:23:21 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:23:21 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:23:40 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:23:50 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:23:50 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:23:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:23:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+ShopController Remove item : removed item
+17/09/2016 19:23:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:23:58 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:23:59 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:24:02 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:24:58 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:25:50 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:26:27 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:26:46 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:26:49 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:26:58 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:27:17 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:27:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin edit page has been done by david
+17/09/2016 19:29:17 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+Admin edit page from client address ::1
+17/09/2016 19:30:35 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:30:36 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:30:42 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin edit page has been done by david
+17/09/2016 19:30:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin edit page has been done by david
+17/09/2016 19:31:05 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST : a successful admin edit to the user with id 1 changing to 0 has been done by david
+17/09/2016 19:31:05 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:31:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin edit page has been done by david
+17/09/2016 19:31:09 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:31:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:31:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:31:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:31:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:31:25 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:31:25 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:31:26 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:31:28 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:31:41 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:33:16 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:33:31 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:34:04 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:39:50 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:43:40 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:43:42 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:43:44 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:43:45 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:45:34 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:46:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:46:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:46:25 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:46:27 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:46:28 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:47:02 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:47:16 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:47:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:47:28 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:47:40 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:48:02 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:48:02 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:48:05 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful purchase has been made 
+17/09/2016 19:48:05 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:48:35 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:49:01 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:49:04 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:49:13 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the forum page
+17/09/2016 19:49:13 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:49:14 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:49:15 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:49:18 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 19:49:21 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 19:49:23 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:49:40 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 19:49:47 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:50:15 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:50:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:50:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 19:50:25 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:50:25 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:50:28 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:50:28 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:50:31 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 19:50:31 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 19:50:35 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 19:50:38 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+ShopController Remove item : removed item
+17/09/2016 19:50:38 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 20:02:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 20:02:21 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 20:06:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 20:06:09 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 20:06:11 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 20:06:12 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User profile page
+17/09/2016 20:06:17 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 20:06:19 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 20:06:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 20:06:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 20:06:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 20:07:07 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 20:07:18 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 20:07:30 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful login to the admin page
+17/09/2016 20:09:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page

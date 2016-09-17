@@ -1,36 +1,38 @@
 ﻿@model IEnumerable<Vladi2.Models.AdminUser>
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Admin";
 }
 
 <h2>Welcome to the admin page!</h2>
+<div class="tableContainer">
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isAdmin)
+            </th>
+            <th></th>
+        </tr>
 
-<table class="table table-bordered table-striped table-hover">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isAdmin)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isAdmin)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id=item.ID })">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isAdmin)
-        </td>
-        <td>            
-            <a href="@Url.Action("Edit", new { id=item.ID })">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

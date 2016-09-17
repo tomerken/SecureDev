@@ -13,9 +13,9 @@ namespace Vladi2.Models
         public static void Log(string message, AccessType access)
         {
             //David
-            string davidPath= @"C:\Users\K2View\SecureDev\SecureDev_Resources\log.txt";
-            string tomerPath = @"D:\SecureDev\SecureDev_Resources\log.txt";
-            using (System.IO.StreamWriter log = new System.IO.StreamWriter(tomerPath, true))
+            string path= @"C:\Users\K2View\SecureDev\SecureDev_Resources\log.txt";
+            //string path = @"D:\SecureDev\SecureDev_Resources\log.txt";
+            using (System.IO.StreamWriter log = new System.IO.StreamWriter(path, true))
             {
                 log.Write(System.DateTime.Now + " ");
                 log.WriteLine("The request has been made from client ip address " + HttpContext.Current.Request.UserHostAddress);
