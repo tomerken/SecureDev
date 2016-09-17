@@ -45,12 +45,15 @@ namespace Vladi2.Controllers
                             int isAdmin = reader.GetInt32(8);
                             if (isAdmin == 1)
                                 Session["IsAdmin"] = 1;
+                            Logging.Log("User " + userName + " has logged in to the system", Logging.AccessType.Valid);
                             return RedirectToAction("Index", "Home");
                         }
                     }
                 }
             }
             //the login failed - redirect to login page with the login error
+
+            Logging.Log("A failed login has been attempt with the use of " + u.Username + " credentials", Logging.AccessType.Invalid);
             ViewBag.ErrorMessage = "The username or password are invalid";
             return View(u);
         }

@@ -23,7 +23,7 @@ namespace Vladi2
             Exception ex = Server.GetLastError();
             if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 404)
             {
-                Response.Redirect("Error");
+                Response.Redirect("/Error");
             }
         }
     }

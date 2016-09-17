@@ -13,17 +13,22 @@ namespace Vladi2.Controllers
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Shopping Cart page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
 
             if(Session["Cart"] == null)
             {
                 ViewBag.Message = "No items in cart";
+                Logging.Log("Successful login to the shoppingcart page", Logging.AccessType.Valid);
                 return View();
             }
 
             else
             {
                 List<CartItem> list = (List<CartItem>)Session["Cart"];
+                Logging.Log("Successful login to the shoppingcart page", Logging.AccessType.Valid);
                 return View(list);
             }
         }

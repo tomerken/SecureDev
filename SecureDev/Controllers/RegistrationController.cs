@@ -23,7 +23,10 @@ namespace Vladi2.Controllers
         public ActionResult Index(User u)
         {
             if (Session["LoggedUserName"] != null)
+            {
+                Logging.Log("POST REGISTER PAGE : attempt to register user while already logged in", Logging.AccessType.Invalid);
                 return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -36,6 +39,7 @@ namespace Vladi2.Controllers
                     {
                         if (reader.HasRows)
                         {
+                            Logging.Log("REGISTER PAGE : Attempt to register user with the same username " + u.Username, Logging.AccessType.Invalid);
                             ViewBag.UserMessage = "Username already exists, please choose a different username";
                             return View();
                         }
@@ -58,6 +62,7 @@ namespace Vladi2.Controllers
                         HttpPostedFileBase pictureFile = Request.Files["Picture"];
                         if (pictureFile.ContentLength > (3 * 1024 * 1024))
                         {
+                            Logging.Log("POST : attempt to register user with picture over 3MB " + u.Username, Logging.AccessType.Invalid);
                             ViewBag.PictureMessage = "File size must not exceed 3MB";
                             return View();
                         }
@@ -65,11 +70,12 @@ namespace Vladi2.Controllers
                         string extension = System.IO.Path.GetExtension(pictureFile.FileName);
                         if(extension != ".jpeg" && extension != ".jpg" && extension != ".bmp" && extension != ".gif" && extension != ".tif" && extension != ".png")
                         {
+                            Logging.Log("POST : attempt to register user with invalid picture extension " + u.Username, Logging.AccessType.Invalid);
                             ViewBag.PictureMessage = "Please upload a valid file";
                             return View();
                         }
                         string guid = Guid.NewGuid().ToString();
-                        fileName = System.IO.Path.Combine(Server.MapPath("~/images/profile"), guid + extension);
+                        fileName = System.IO.Path.Combine(@"D:\SecureDev\SecureDev_Resources\images\profile\", guid + extension);
                         pictureFile.SaveAs(fileName);
                         fileName = guid + extension;
                     }
@@ -81,6 +87,7 @@ namespace Vladi2.Controllers
                     try
                     {
                         command.ExecuteNonQuery();
+                        Logging.Log("POST :Successfuly registered user " + u.Username, Logging.AccessType.Valid);
                     }
                     catch (Exception ex)
                     {

@@ -15,7 +15,10 @@ namespace Vladi2.Controllers
         public ActionResult Index()
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Information page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
 
             string petType;
             string petName;
@@ -47,7 +50,7 @@ namespace Vladi2.Controllers
                         return View();
                     }
                 }
-
+                Logging.Log("Successful login to information page", Logging.AccessType.Valid);
                 return View(infoList);
             }
         }

@@ -13,28 +13,20 @@ namespace Vladi2.Controllers
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] == null)
-                return RedirectToAction("Index", "Error");
+            {
+                Logging.Log("Admin page", Logging.AccessType.Anonymous);
+                return RedirectToAction("Index","Error");
+            }
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                //using (SQLiteDataReader reader = command.ExecuteReader())
-                //{
-                //    while (reader.Read())
-                //    {
-                //        int isAdmin = reader.GetInt32(0);
-                //        if (isAdmin != 1)
-                //            return RedirectToAction("Index", "Error");
-                //    }
-                //}
-
                 if (!checkifAdmin())
                 {
+                    Logging.Log("Admin page", Logging.AccessType.Unauthorized);
                     return RedirectToAction("Index", "Error");
                 }
-
+                Logging.Log("A successful login to the admin page", Logging.AccessType.Valid);
                 List<AdminUser> users = new List<AdminUser>();
                 AdminUser u;
 
@@ -60,24 +52,17 @@ namespace Vladi2.Controllers
         public ActionResult Edit(int id)
         {
             if (Session["LoggedUserName"] == null)
+            {
+                Logging.Log("Admin  edit page from client address " + Request.UserHostAddress, Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Error");
+            }
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                //using (SQLiteDataReader reader = command.ExecuteReader())
-                //{
-                //    while (reader.Read())
-                //    {
-                //        int isAdmin = reader.GetInt32(0);
-                //        if (isAdmin != 1)
-                //            return RedirectToAction("Index", "Home");
-                //    }
-                //}
                 if (!checkifAdmin())
                 {
+                    Logging.Log("Admin edit page by " + Session["LoggedUserName"].ToString(), Logging.AccessType.Unauthorized);
                     return RedirectToAction("Index", "Error");
                 }
                 AdminUser u = new AdminUser();
@@ -98,6 +83,7 @@ namespace Vladi2.Controllers
                             u.isAdmin = isAdmin;
                             u.Username = username;
                         }
+                        Logging.Log("A successful login to the admin edit page has been done by " + Session["LoggedUserName"].ToString(), Logging.AccessType.Valid);
                         return View(u);
                     }
                     else
@@ -113,24 +99,17 @@ namespace Vladi2.Controllers
         public ActionResult Edit(AdminUser u)
         {
             if (Session["LoggedUserName"] == null)
+            {
+                Logging.Log("POST : admin edit page from client address " + Request.UserHostAddress, Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Error");
+            }
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
                 m_dbConnection.Open();
-                //SQLiteCommand command = new SQLiteCommand("SELECT isAdmin FROM tblusers Where username = @username", m_dbConnection);
-                //command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                //using (SQLiteDataReader reader = command.ExecuteReader())
-                //{
-                //    while (reader.Read())
-                //    {
-                //        int isAdmin = reader.GetInt32(0);
-                //        if (isAdmin != 1)
-                //            return RedirectToAction("Index", "Home");
-                //    }
-                //}
                 if (!checkifAdmin())
                 {
+                    Logging.Log("POST : admin edit page by " + Session["LoggedUserName"].ToString(), Logging.AccessType.Unauthorized);
                     return RedirectToAction("Index", "Error");
                 }
                 SQLiteCommand command = new SQLiteCommand("UPDATE tblusers SET isAdmin = @isAdmin WHERE id = @id", m_dbConnection);
@@ -139,6 +118,7 @@ namespace Vladi2.Controllers
                 try
                 {
                     command.ExecuteNonQuery();
+                    Logging.Log("POST : a successful admin edit to the user with id " + u.ID + " changing to " + u.isAdmin + " has been done by " + Session["LoggedUserName"].ToString(), Logging.AccessType.Valid);
                 }
                 catch (Exception ex)
                 {

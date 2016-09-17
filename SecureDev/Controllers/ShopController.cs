@@ -16,7 +16,10 @@ namespace Vladi2.Controllers
         public ActionResult Stage1()
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Shop page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
 
             var selectBoxs = new ShoppingCart();
             List<SelectListItem> petTypeList = new List<SelectListItem>();
@@ -38,6 +41,7 @@ namespace Vladi2.Controllers
 
             selectBoxs.PetType = petTypeList;
             selectBoxs.PetName = new[] { new SelectListItem { Value = "", Text = "" } };
+            Logging.Log("Successful login to shop page", Logging.AccessType.Valid);
             return View(selectBoxs);
         }
 
@@ -94,7 +98,10 @@ namespace Vladi2.Controllers
         public ActionResult AddToCart(FormCollection form)
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Add to cart in shop page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
 
             string petType;
             string petName;
@@ -126,6 +133,7 @@ namespace Vladi2.Controllers
                             Session["Cart"] = new List<CartItem>();
                         }
                          ((List<CartItem>)Session["Cart"]).Add(new CartItem(petId, petName, petType, price));
+                        Logging.Log("Successful add to cart", Logging.AccessType.Valid);
                     }
                 }
 
@@ -146,7 +154,10 @@ namespace Vladi2.Controllers
         public ActionResult Confirm()
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Order confirmation page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
 
             List<CartItem> list = (List<CartItem>)Session["Cart"];
             if(list == null)
@@ -163,7 +174,10 @@ namespace Vladi2.Controllers
         public ActionResult Buy()
         {
             if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("POST : Buy method", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
             List<CartItem> cartItemList = (List<CartItem>)Session["Cart"];
             string userId = Session["LoggedUserID"].ToString();
             if (cartItemList == null)
@@ -186,6 +200,7 @@ namespace Vladi2.Controllers
                 }
             }
             Session["Cart"] = null;
+            Logging.Log("A successful purchase has been made ", Logging.AccessType.Valid);
             return RedirectToAction("Index", "Information");
         }
 

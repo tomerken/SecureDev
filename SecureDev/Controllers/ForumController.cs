@@ -15,7 +15,10 @@ namespace Vladi2.Controllers
         public ActionResult Index()
         {
             if (Session["LoggedUserName"] == null)
+            {
+                Logging.Log("Forum page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
             List<ForumMessage> msgs = new List<ForumMessage>();
             ForumMessage msg;
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -37,13 +40,18 @@ namespace Vladi2.Controllers
                     }
                 }
             }
+            Logging.Log("Successful login to the forum page", Logging.AccessType.Valid);
             return View(msgs);
         }
 
         public ActionResult Create()
         {
             if (Session["LoggedUserName"] == null)
+            {
+                Logging.Log("Forum create message page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
+            Logging.Log("Successful login to the create forum page", Logging.AccessType.Valid);
             return View();
         }
 
@@ -52,7 +60,10 @@ namespace Vladi2.Controllers
         public ActionResult Create(ForumMessage msg)
         {
             if (Session["LoggedUserName"] == null)
+            {
+                Logging.Log("POST : Forum create message page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
+            }
             if (ModelState.IsValid)
                 {
                     var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -66,7 +77,8 @@ namespace Vladi2.Controllers
                         try
                         {
                             command.ExecuteNonQuery();
-                        }
+                        Logging.Log("POST : Successful creation of a forum post", Logging.AccessType.Valid);
+                    }
                         catch (Exception ex)
                         {
                             throw new Exception(ex.Message);

@@ -1,0 +1,42 @@
+17/09/2016 11:48:03 The request has been made from client ip address ::1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test credentials
+17/09/2016 11:48:10 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 11:48:15 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the forum page
+17/09/2016 11:48:21 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the create forum page
+17/09/2016 11:48:23 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : Successful creation of a forum post
+17/09/2016 11:48:23 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the forum page
+17/09/2016 11:48:30 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 11:48:41 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 11:48:41 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 11:49:08 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 11:49:18 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 11:49:23 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User profile page
+17/09/2016 11:49:35 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+POST : Password change page tried to change password with invalid old password
+17/09/2016 11:49:43 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : Password change page successfuly changed password

@@ -8,36 +8,22 @@ using System.Web;
 using System.Web.Mvc;
 using Vladi2.Models;
 using System.Web.Script.Serialization;
-
+using System.Web.Security.AntiXss;
 
 namespace Vladi2.Controllers
 {
     public class HomeController : BaseController
     {
         //entry point for main page as determined in the route config
-        public ActionResult Index(string validationError = null)
+        public ActionResult Index()
         {
-            var vm = new homeVM() { data = validationError };
-            return View(vm);
-        }
-        //GET: home/login 
-
-   
-        public ActionResult XSS(string xss)
-        {
-            var vm = new homeVM() { data = xss };
-            return View(vm);
-        }
-        //returns the user home page
-        public ActionResult UserHome(string userName)
-        {
-            var vm = new homeVM {data = userName};
-            return View(vm);
+            return View();
         }
 
         [HttpGet]
         public ActionResult Search(String name)
         {
+            string XSSName = AntiXssEncoder.HtmlEncode(name, true);
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             List<Pet> pets = new List<Pet>();
             Pet pet;
@@ -45,7 +31,7 @@ namespace Vladi2.Controllers
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblpets WHERE petName LIKE @petName", m_dbConnection);
-                command.Parameters.AddWithValue("@petName", "%" + name + "%");
+                command.Parameters.AddWithValue("@petName", "%" + XSSName + "%");
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -63,9 +49,6 @@ namespace Vladi2.Controllers
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 string output = jss.Serialize(pets);
                 return Content(output);
-                //Response.Write(output);
-                //Response.Flush();
-                //Response.End();
             }
         }
     }
