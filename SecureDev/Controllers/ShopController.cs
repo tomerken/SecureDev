@@ -110,6 +110,9 @@ namespace Vladi2.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            string g = form["selectpetname"];
+            string v = form["selectpettype"];
+
             if (form["selectpetname"] == null || form["selectpettype"] == null || form["selectpetname"].ToString() == "" || form["selectpettype"].ToString() == "")
             {
                 Logging.Log("POST Add to cart : the user " + Session["LoggedUserName"].ToString() + " attempted to post without the required params ", Logging.AccessType.Invalid);

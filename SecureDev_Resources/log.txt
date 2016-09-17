@@ -157,3 +157,207 @@ A successful purchase has been made
 17/09/2016 12:29:35 The request has been made from client ip address ::1
 A valid request has been attempted by test2 : 
 Successful login to information page
+17/09/2016 13:18:10 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:18:13 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:18:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST Add to cart : an unsuccessful attempt to add to cart with wrong name/type was made by david
+17/09/2016 13:20:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:21:00 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:25:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:25:11 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:25:14 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:25:14 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:25:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+POST Add to cart : an unsuccessful attempt to add to cart with wrong name/type was made by david
+17/09/2016 13:27:45 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:27:47 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:29:50 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:29:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to the shoppingcart page
+17/09/2016 13:29:52 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:30:00 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:30:00 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:31:19 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:31:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:31:26 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:31:26 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:32:55 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:32:57 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:33:08 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:33:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:33:15 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 13:33:15 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:37:21 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:37:23 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:39:41 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:48:30 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:48:34 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:48:57 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 13:48:57 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:50:20 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:51:05 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:52:36 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:53:08 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:53:39 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:53:45 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:53:49 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:53:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:54:09 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:54:10 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:54:44 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:55:01 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:55:37 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 13:55:38 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 13:55:49 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:00:22 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:00:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:01:13 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:03:34 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:06:24 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:07:29 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:08:02 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:08:26 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST Add to cart : the user david attempted to post without the required params 
+17/09/2016 14:08:26 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:08:34 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 14:08:34 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:16:41 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+Shop page
+17/09/2016 14:16:53 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+User david has logged in to the system
+17/09/2016 14:16:59 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:17:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful add to cart
+17/09/2016 14:17:51 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to shop page
+17/09/2016 14:17:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+A successful purchase has been made 
+17/09/2016 14:17:56 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page
+17/09/2016 14:18:35 The request has been made from client ip address ::1
+A valid request has been attempted by david : 
+Successful login to information page

@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
-    //getPetNames("dog");
-    //getPetPrice("amstaf");
+    deleteFirstRowInPetName();
 });
 
 
@@ -12,12 +11,16 @@
 /* ===== event handling ===== */
 
 $('#SelectPetType').on('change', function () {
-    getPetNames($(this).val()); 
+    getPetNames($(this).val());
 });
 
 $('#SelectPetName').on('change', function () {
     getPetPrice($(this).val());
+    isOK();
+    
+    
 });
+
 
 
 /*============================*/
@@ -32,7 +35,7 @@ function getPetNames(petType) {
         $.each(data, function (index, item) {
             subItems += "<option value='" + item.Value + "'>" + item.Text + "</option>"
         });
-        $("#SelectPetName").html(subItems)
+        $("#SelectPetName").html(subItems);
     });
 }
 
@@ -50,4 +53,16 @@ function getPetPrice(petName) {
 }
 
 
+function deleteFirstRowInPetName() {
+    $('#SelectPetName').children().eq(1).remove();
+}
 
+
+function isOK() {
+    if ($("#SelectPrice").val() == '') {
+        $("#submitButtonShop").removeClass("disabled");
+    }
+    else {
+        $("#submitButtonShop").addClass("disabled");
+    }
+}

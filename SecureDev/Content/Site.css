@@ -33,3 +33,7 @@ footer{
     background-color: #efefef;
     text-align: center;
 }
+
+.disabled{
+    cursor: not-allowed;
+}
