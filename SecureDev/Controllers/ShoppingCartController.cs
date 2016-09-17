@@ -32,5 +32,38 @@ namespace Vladi2.Controllers
                 return View(list);
             }
         }
+
+        [HttpGet]
+        public ActionResult RemoveItem(String petId)
+        {
+            if (Session["LoggedUserID"] == null)
+            {
+                Logging.Log("Shopping Cart page", Logging.AccessType.Anonymous);
+                return RedirectToAction("Index", "Login");
+            }
+
+            int _petId;
+            List<CartItem> list = (List<CartItem>)Session["Cart"];
+
+            try
+            {
+                _petId = Int32.Parse(petId);
+            }catch{
+                Logging.Log("ShopController Remove item : attempt to remove item with non numeric type", Logging.AccessType.Invalid);
+                return RedirectToAction("Index");
+            }
+
+            foreach(CartItem currCartItem in list)
+            {
+                if(currCartItem.petId == _petId)
+                {
+                    list.Remove(currCartItem);
+                    Logging.Log("ShopController Remove item : removed item", Logging.AccessType.Valid);
+                    Session["Cart"] = list;
+                    return RedirectToAction("Index");
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

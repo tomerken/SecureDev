@@ -3,16 +3,13 @@
 @{
     ViewBag.Title = "Profile Page";
 }
-
-<h2>View</h2>
-
+<br />
+<br />
 @using (Html.BeginForm("Index", "UserProfile", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
 
         <div class="form-group">
             @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })

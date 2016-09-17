@@ -6,7 +6,7 @@
 
 <h2>Welcome to the admin page!</h2>
 
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Username)
@@ -25,8 +25,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.isAdmin)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+        <td>            
+            <a href="@Url.Action("Edit", new { id=item.ID })">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
         </td>
     </tr>
 }

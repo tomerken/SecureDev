@@ -10,18 +10,17 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <div class="container-fluid">
         <div class="row">
             <div class="form-group">
-                @Html.Label("Username", new { @class = "col-md-1 control-label" })
-                @Html.TextBoxFor(a => a.Username, new { @class = "col-md-9 form-control" })
+                @Html.Label("Username", new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(a => a.Username, new { @class = "col-md-6 form-control" })
                 @Html.ValidationMessageFor(a => a.Username)
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                @Html.Label("Password", new { @class = "col-md-1 control-label" })
-                @Html.PasswordFor(a => a.Password, new { @class = "col-md-9 form-control" })
+                @Html.Label("Password", new { @class = "col-md-2 control-label" })
+                @Html.PasswordFor(a => a.Password, new { @class = "col-md-6 form-control" })
             </div>
         </div>
         <br />
@@ -39,8 +38,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
 }
 <br />
 <div>@ViewBag.ErrorMessage</div>

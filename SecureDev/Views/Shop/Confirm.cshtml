@@ -15,7 +15,7 @@
     }
     else
     { 
-        <table class="table">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.petName)
@@ -26,7 +26,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
                 </th>
-                <th></th>
             </tr>
 
             @foreach (var item in Model)
@@ -45,8 +44,11 @@
             }
 
         </table>
-
-        <button type="submit">Buy</button>
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Buy</button>
+        </div>
+        
     }
 }
 

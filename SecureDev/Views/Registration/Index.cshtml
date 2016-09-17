@@ -10,70 +10,70 @@
 {
     @Html.AntiForgeryToken()
 
-    <fieldset>
-        <div>
-            @Html.LabelFor(a => a.Username)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.Username)
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Username", new { @class = "col-md-3 control-label" })
+            @Html.TextBoxFor(a => a.Username, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.Username)
-            @ViewBag.UserMessage
         </div>
-        <div>
-            @Html.LabelFor(a => a.Password)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.Password)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Password", new { @class = "col-md-3 control-label" })
+            @Html.PasswordFor(a => a.Password, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.Password)
         </div>
-        <div>
-            @Html.LabelFor(a => a.ComparePassword)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.ComparePassword)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Confirmation Password", new { @class = "col-md-3 control-label" })
+            @Html.PasswordFor(a => a.ComparePassword, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.ComparePassword)
         </div>
-        <div>
-            @Html.LabelFor(a => a.Email)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.Email)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Email", new { @class = "col-md-3 control-label" })
+            @Html.TextBoxFor(a => a.Email, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.Email)
         </div>
-        <div>
-            @Html.LabelFor(a => a.FirstName)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.FirstName)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("First Name", new { @class = "col-md-3 control-label" })
+            @Html.TextBoxFor(a => a.FirstName, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.FirstName)
         </div>
-        <div>
-            @Html.LabelFor(a => a.LastName)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.LastName)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Last Name", new { @class = "col-md-3 control-label" })
+            @Html.TextBoxFor(a => a.LastName, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.LastName)
         </div>
-        <div>
-            @Html.LabelFor(a => a.Phone)
-        </div>
-        <div>
-            @Html.EditorFor(a => a.Phone)
+    </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("Phone", new { @class = "col-md-3 control-label" })
+            @Html.TextBoxFor(a => a.Phone, new { @class = "col-md-6 form-control" })
             @Html.ValidationMessageFor(a => a.Phone)
         </div>
-        <div>
-            @Html.LabelFor(a => a.Picture)
-        </div>
-
+    </div>
+    <div class="row">
         <div class="form-group">
-            <input type="file" name="Picture" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif,.bmp" />
-            <div>@ViewBag.PictureMessage</div>
+            @Html.Label("Picture", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                <input type="file" name="Picture" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif,.bmp" />
+                <div>@ViewBag.PictureMessage</div>
+            </div>
         </div>
-
-        <div>
-            <input type="submit" value="Register" />
+    </div>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-primary" />
         </div>
-    </fieldset>
+    </div>
 }
 
 @section Scripts {

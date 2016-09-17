@@ -47,9 +47,16 @@
             </div>
         </div>
     </div>
-<div class="container body-content">
-    @*all the views are rendered inside this div*@
-    @RenderBody()
+<div class="container-fluid body-content">
+        @*all the views are rendered inside this div*@
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @RenderBody()
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+       
     <hr/>
     @*layout footer*@
     <footer>
