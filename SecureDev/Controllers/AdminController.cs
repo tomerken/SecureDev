@@ -41,9 +41,9 @@ namespace Vladi2.Controllers
                     while (reader.Read())
                     {
                         u = new AdminUser();
-                        int id = reader.GetInt32(0);
-                        string username = reader.GetString(1);
-                        int isAdmin = reader.GetInt32(2);
+                        int id = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(0).ToString(), true));
+                        string username = AntiXssEncoder.HtmlEncode(reader.GetString(1), true);
+                        int isAdmin = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(2).ToString(), true));
                         u.ID = id;
                         u.isAdmin = isAdmin;
                         u.Username = username;
