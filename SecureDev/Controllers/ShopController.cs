@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -20,7 +21,11 @@ namespace Vladi2.Controllers
                 Logging.Log("Shop page", Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Login");
             }
-
+            // the request came from addtocart
+            if (TempData["AddToCartMessage"] != null)
+            {
+                ViewBag.AddToCartMessage = TempData["AddToCartMessage"].ToString();
+            }
             var selectBoxs = new ShoppingCart();
             List<SelectListItem> petTypeList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
@@ -49,6 +54,7 @@ namespace Vladi2.Controllers
         [HttpGet]
         public ActionResult GetStage1PetNames(string petType)
         {
+            string petTypeXSS = AntiXssEncoder.HtmlEncode(petType, true);
             List<SelectListItem> petNameList = new List<SelectListItem>();
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
 
@@ -56,7 +62,7 @@ namespace Vladi2.Controllers
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("select petName from tblpets where petType = @petType", m_dbConnection);
-                command.Parameters.AddWithValue("@petType", petType);
+                command.Parameters.AddWithValue("@petType", petTypeXSS);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -73,6 +79,7 @@ namespace Vladi2.Controllers
         [HttpGet]
         public ActionResult GetStage1PetPrice(string petName)
         {
+            string petNameXSS = AntiXssEncoder.HtmlEncode(petName, true);
             string price = string.Empty;
             var connectionString = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             
@@ -80,7 +87,7 @@ namespace Vladi2.Controllers
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("select price from tblpets where petName = @petName", m_dbConnection);
-                command.Parameters.AddWithValue("@petName", petName);
+                command.Parameters.AddWithValue("@petName", petNameXSS);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -103,6 +110,13 @@ namespace Vladi2.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            if (form["selectpetname"] == null || form["selectpettype"] == null || form["selectpetname"].ToString() == "" || form["selectpettype"].ToString() == "")
+            {
+                Logging.Log("POST Add to cart : the user " + Session["LoggedUserName"].ToString() + " attempted to post without the required params ", Logging.AccessType.Invalid);
+                TempData["AddToCartMessage"] = "Please choose a pet type and a pet name before adding to cart";
+                return RedirectToAction("Stage1");
+            }
+
             string petType;
             string petName;
             int petId;
@@ -118,22 +132,29 @@ namespace Vladi2.Controllers
                 command.Parameters.AddWithValue("type", form["selectpettype"].ToString());
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-
-                        // selecting petName and petType back from database - if they passed the prepare statement
-                        // they will be returned from database correctly and setting success as true
-                        success = true;
-                        petName = reader.GetString(0);
-                        petType = reader.GetString(1);
-                        price = reader.GetInt32(2);
-                        petId = reader.GetInt32(3);
-                        if (Session["Cart"] == null)
+                        while (reader.Read())
                         {
-                            Session["Cart"] = new List<CartItem>();
+
+                            // selecting petName and petType back from database - if they passed the prepare statement
+                            // they will be returned from database correctly and setting success as true
+                            success = true;
+                            petName = reader.GetString(0);
+                            petType = reader.GetString(1);
+                            price = reader.GetInt32(2);
+                            petId = reader.GetInt32(3);
+                            if (Session["Cart"] == null)
+                            {
+                                Session["Cart"] = new List<CartItem>();
+                            }
+                             ((List<CartItem>)Session["Cart"]).Add(new CartItem(petId, petName, petType, price));
+                            Logging.Log("Successful add to cart", Logging.AccessType.Valid);
                         }
-                         ((List<CartItem>)Session["Cart"]).Add(new CartItem(petId, petName, petType, price));
-                        Logging.Log("Successful add to cart", Logging.AccessType.Valid);
+                    }
+                    else
+                    {
+                        Logging.Log("POST Add to cart : an unsuccessful attempt to add to cart with wrong name/type was made by " + Session["LoggedUserName"].ToString(), Logging.AccessType.Valid);
                     }
                 }
 
@@ -141,7 +162,7 @@ namespace Vladi2.Controllers
             // the values posted were actually in database and not some attack
             if(success)
             {
-                ViewBag.AddToCartMessage = "Successfuly added the item to cart";
+                TempData["AddToCartMessage"] = "Successfuly added the item to cart";
                 return RedirectToAction("Stage1");
             }
             else

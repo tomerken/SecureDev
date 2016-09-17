@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -53,9 +54,11 @@ namespace Vladi2.Controllers
         {
             if (Session["LoggedUserName"] == null)
             {
-                Logging.Log("Admin  edit page from client address " + Request.UserHostAddress, Logging.AccessType.Anonymous);
+                Logging.Log("Admin edit page from client address " + Request.UserHostAddress, Logging.AccessType.Anonymous);
                 return RedirectToAction("Index", "Error");
             }
+            string XSSIDstring = AntiXssEncoder.HtmlEncode(id.ToString(), true);
+            int XSSID = int.Parse(XSSIDstring);
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
             using (var m_dbConnection = new SQLiteConnection(connectionString))
             {
@@ -68,7 +71,7 @@ namespace Vladi2.Controllers
                 AdminUser u = new AdminUser();
 
                 SQLiteCommand command = new SQLiteCommand("SELECT id, username, isAdmin FROM tblusers WHERE id = @id", m_dbConnection);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", XSSID);
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
