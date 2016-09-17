@@ -141,8 +141,8 @@ namespace Vladi2.Controllers
             {
                 m_dbConnection.Open();
                 SQLiteCommand command = new SQLiteCommand("select petName, petType, price, petId from tblpets where petName = @name AND petType = @type", m_dbConnection);
-                command.Parameters.AddWithValue("name", form["selectpetname"].ToString());
-                command.Parameters.AddWithValue("type", form["selectpettype"].ToString());
+                command.Parameters.AddWithValue("name", AntiXssEncoder.HtmlEncode(form["selectpetname"].ToString(), true));
+                command.Parameters.AddWithValue("type", AntiXssEncoder.HtmlEncode(form["selectpettype"].ToString(), true));
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -152,10 +152,10 @@ namespace Vladi2.Controllers
                             // selecting petName and petType back from database - if they passed the prepare statement
                             // they will be returned from database correctly and setting success as true
                             success = true;
-                            petName = reader.GetString(0);
-                            petType = reader.GetString(1);
-                            price = reader.GetInt32(2);
-                            petId = reader.GetInt32(3);
+                            petName = AntiXssEncoder.HtmlEncode(reader.GetString(0), true);
+                            petType = AntiXssEncoder.HtmlEncode(reader.GetString(1), true);
+                            price = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(2).ToString(), true));
+                            petId = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(3).ToString(), true));
                             if (Session["Cart"] == null)
                             {
                                 Session["Cart"] = new List<CartItem>();

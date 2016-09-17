@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -31,17 +32,18 @@ namespace Vladi2.Controllers
             }
             if (ModelState.IsValid)
             {
+                string xssUsername = AntiXssEncoder.HtmlEncode(u.Username, true);
                 var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();
                     SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username", m_dbConnection);
-                    command.Parameters.AddWithValue("@username", u.Username);
+                    command.Parameters.AddWithValue("@username", xssUsername);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
-                            Logging.Log("REGISTER PAGE : Attempt to register user with the same username " + u.Username, Logging.AccessType.Invalid);
+                            Logging.Log("REGISTER PAGE : Attempt to register user with the same username " + xssUsername, Logging.AccessType.Invalid);
                             ViewBag.UserMessage = "Username already exists, please choose a different username";
                             return View();
                         }
@@ -52,12 +54,12 @@ namespace Vladi2.Controllers
                 {
                     m_dbConnection.Open();
                     SQLiteCommand command = new SQLiteCommand("INSERT INTO tblusers (username, password, firstname, lastname, email, phone, picture, isAdmin) VALUES (@username,@password,@firstname,@lastname,@email,@phone,@picture, 0)", m_dbConnection);
-                    command.Parameters.AddWithValue("@username", u.Username);
-                    command.Parameters.AddWithValue("@password", u.Password);
-                    command.Parameters.AddWithValue("@firstname", u.FirstName);
-                    command.Parameters.AddWithValue("@lastname", u.LastName);
-                    command.Parameters.AddWithValue("@email", u.Email);
-                    command.Parameters.AddWithValue("@phone", u.Phone);
+                    command.Parameters.AddWithValue("@username", xssUsername);
+                    command.Parameters.AddWithValue("@password", AntiXssEncoder.HtmlEncode(u.Password, true));
+                    command.Parameters.AddWithValue("@firstname", AntiXssEncoder.HtmlEncode(u.FirstName, true));
+                    command.Parameters.AddWithValue("@lastname", AntiXssEncoder.HtmlEncode(u.LastName, true));
+                    command.Parameters.AddWithValue("@email", AntiXssEncoder.HtmlEncode(u.Email, true));
+                    command.Parameters.AddWithValue("@phone", AntiXssEncoder.HtmlEncode(u.Phone, true));
 
                     if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0 && Request.Files[0].FileName != "")
                     {

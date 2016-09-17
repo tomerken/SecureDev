@@ -84,9 +84,9 @@ namespace Vladi2.Controllers
                         while (reader.Read())
                         {
                             u = new AdminUser();
-                            int userId = reader.GetInt32(0);
-                            string username = reader.GetString(1);
-                            int isAdmin = reader.GetInt32(2);
+                            int userId = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(0).ToString(), true));
+                            string username = AntiXssEncoder.HtmlEncode(reader.GetString(1), true);
+                            int isAdmin = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(2).ToString(), true));
                             u.ID = userId;
                             u.isAdmin = isAdmin;
                             u.Username = username;
@@ -123,8 +123,8 @@ namespace Vladi2.Controllers
                     return RedirectToAction("Index", "Error");
                 }
                 SQLiteCommand command = new SQLiteCommand("UPDATE tblusers SET isAdmin = @isAdmin WHERE id = @id", m_dbConnection);
-                command.Parameters.AddWithValue("@id", u.ID);
-                command.Parameters.AddWithValue("@isAdmin", u.isAdmin);
+                command.Parameters.AddWithValue("@id", int.Parse(AntiXssEncoder.HtmlEncode(u.ID.ToString(), true)));
+                command.Parameters.AddWithValue("@isAdmin", int.Parse(AntiXssEncoder.HtmlEncode(u.isAdmin.ToString(), true)));
                 try
                 {
                     command.ExecuteNonQuery();

@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -35,8 +36,10 @@ namespace Vladi2.Controllers
                 {
                     m_dbConnection.Open();
                     SQLiteCommand command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
-                    command.Parameters.AddWithValue("@username", u.Username);
-                    command.Parameters.AddWithValue("@password", u.Password);
+                    string usernameXSS = AntiXssEncoder.HtmlEncode(u.Username, true);
+                    string passwordXSS = AntiXssEncoder.HtmlEncode(u.Password, true);
+                    command.Parameters.AddWithValue("@username", usernameXSS);
+                    command.Parameters.AddWithValue("@password", passwordXSS);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())

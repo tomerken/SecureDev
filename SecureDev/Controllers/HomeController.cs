@@ -39,10 +39,10 @@ namespace Vladi2.Controllers
                     {
                         pet = new Pet();
                         // adding messages to the list
-                        pet.PetID = reader.GetInt32(0);
-                        pet.PetName = reader.GetString(1).Trim();
-                        pet.Price = reader.GetDecimal(2);
-                        pet.PetType = reader.GetString(3).Trim();
+                        pet.PetID = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(0).ToString(), true));
+                        pet.PetName = AntiXssEncoder.HtmlEncode(reader.GetString(1).Trim(), true);
+                        pet.Price = Decimal.Parse(AntiXssEncoder.HtmlEncode(reader.GetDecimal(2).ToString(), true));
+                        pet.PetType = AntiXssEncoder.HtmlEncode(reader.GetString(3).Trim(), true) ;
                         pets.Add(pet);
                     }
                 }

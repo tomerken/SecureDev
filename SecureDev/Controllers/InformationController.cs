@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -38,10 +39,10 @@ namespace Vladi2.Controllers
                     if (reader.HasRows) { 
                         while (reader.Read())
                         {
-                            Id = reader.GetInt32(0);
-                            petName = reader.GetString(1);
-                            petType = reader.GetString(2);
-                            price = reader.GetDecimal(3);
+                            Id = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(0).ToString(),true));
+                            petName = AntiXssEncoder.HtmlEncode(reader.GetString(1), true);
+                            petType = AntiXssEncoder.HtmlEncode(reader.GetString(2), true);
+                            price = Decimal.Parse(AntiXssEncoder.HtmlEncode(reader.GetDecimal(3).ToString(), true));
                             
                             infoList.Add(new Information(Id, petName, petType, price));
                         }

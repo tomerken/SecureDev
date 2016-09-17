@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vladi2.Models;
 using System.Collections;
+using System.Web.Security.AntiXss;
 
 namespace Vladi2.Controllers
 {
@@ -76,8 +77,8 @@ namespace Vladi2.Controllers
                         m_dbConnection.Open();
                         SQLiteCommand command = new SQLiteCommand("INSERT INTO tblforum (userId, subject, body) VALUES (@userId,@subject,@body)", m_dbConnection);
                         command.Parameters.AddWithValue("@userId", int.Parse(Session["LoggedUserId"].ToString()));
-                        command.Parameters.AddWithValue("@body", msg.Body);
-                        command.Parameters.AddWithValue("@subject", msg.Subject);
+                        command.Parameters.AddWithValue("@body", AntiXssEncoder.HtmlEncode(msg.Body, true));
+                        command.Parameters.AddWithValue("@subject", AntiXssEncoder.HtmlEncode(msg.Subject, true));
                         try
                         {
                             command.ExecuteNonQuery();

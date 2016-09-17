@@ -1453,3 +1453,294 @@ Successful login to the shoppingcart page
 17/09/2016 19:05:34 The request has been made from client ip address ::1
 A valid request has been attempted by test : 
 Successful login to shop page
+17/09/2016 19:10:17 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test credentials
+17/09/2016 19:13:44 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test2 credentials
+17/09/2016 19:13:48 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:20:11 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test credentials
+17/09/2016 19:20:57 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of <script> alert('test') </script>t credentials
+17/09/2016 19:22:21 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of ' OR credentials
+17/09/2016 19:22:21 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of ' OR '1' = '1' ' credentials
+17/09/2016 19:22:21 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of ' OR '1' = '1' ' credentials
+17/09/2016 19:22:33 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of ' OR '1' = '1' ' credentials
+17/09/2016 19:22:46 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+A failed login has been attempt with the use of ' OR credentials
+17/09/2016 19:23:39 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by  : 
+POST :Successfuly registered user ' OR '1' = '1' '
+17/09/2016 19:23:39 The request has been made from client ip address 127.0.0.1
+An anonymous request has been attempted :
+Information page
+17/09/2016 19:24:18 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:24:19 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 19:24:50 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by  : 
+POST :Successfuly registered user <script> alert('a') </script>
+17/09/2016 19:24:50 The request has been made from client ip address 127.0.0.1
+An anonymous request has been attempted :
+Information page
+17/09/2016 19:24:58 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:25:00 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 19:30:06 The request has been made from client ip address 127.0.0.1
+An anonymous request has been attempted :
+Admin page
+17/09/2016 19:37:20 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+REGISTER PAGE : Attempt to register user with the same username test
+17/09/2016 19:37:34 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+REGISTER PAGE : Attempt to register user with the same username test
+17/09/2016 19:37:43 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+REGISTER PAGE : Attempt to register user with the same username test
+17/09/2016 19:38:58 The request has been made from client ip address 127.0.0.1
+An invalid request has been attempted :
+REGISTER PAGE : Attempt to register user with the same username test
+17/09/2016 19:39:45 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by  : 
+POST :Successfuly registered user test15
+17/09/2016 19:40:29 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by  : 
+POST :Successfuly registered user test123
+17/09/2016 19:40:29 The request has been made from client ip address 127.0.0.1
+An anonymous request has been attempted :
+Information page
+17/09/2016 19:49:51 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 19:49:52 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 19:49:55 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin edit page has been done by test2
+17/09/2016 19:49:57 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+POST : a successful admin edit to the user with id 33 changing to 2 has been done by test2
+17/09/2016 19:49:57 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test2 : 
+A successful login to the admin page
+17/09/2016 19:51:48 The request has been made from client ip address ::1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test credentials
+17/09/2016 19:51:50 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 19:51:51 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 19:51:53 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin edit page has been done by test
+17/09/2016 19:51:55 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : a successful admin edit to the user with id 33 changing to 1 has been done by test
+17/09/2016 19:51:55 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 19:51:55 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin edit page has been done by test
+17/09/2016 19:52:04 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : a successful admin edit to the user with id 33 changing to 0 has been done by test
+17/09/2016 19:52:04 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 19:52:06 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin edit page has been done by test
+17/09/2016 19:52:18 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 19:52:24 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 19:52:26 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin edit page has been done by test
+17/09/2016 19:52:28 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+A successful login to the admin page
+17/09/2016 19:58:09 The request has been made from client ip address ::1
+An invalid request has been attempted :
+REGISTER PAGE : Attempt to register user with the same username test
+17/09/2016 19:58:18 The request has been made from client ip address ::1
+A valid request has been attempted by  : 
+POST :Successfuly registered user test212
+17/09/2016 19:58:18 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+Information page
+17/09/2016 19:59:35 The request has been made from client ip address ::1
+An invalid request has been attempted :
+A failed login has been attempt with the use of test212 credentials
+17/09/2016 20:15:45 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 20:15:47 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:15:50 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:15:53 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 20:15:53 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:15:55 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:15:57 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+ShopController Remove item : removed item
+17/09/2016 20:15:57 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:16:02 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User test2 has logged in to the system
+17/09/2016 20:16:04 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 20:16:09 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the create forum page
+17/09/2016 20:16:17 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+POST : Successful creation of a forum post
+17/09/2016 20:16:17 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 20:16:20 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the create forum page
+17/09/2016 20:16:24 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+POST : Successful creation of a forum post
+17/09/2016 20:16:24 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 20:16:26 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the create forum page
+17/09/2016 20:16:29 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+POST : Successful creation of a forum post
+17/09/2016 20:16:29 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the forum page
+17/09/2016 20:16:33 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+Successful login to the shoppingcart page
+17/09/2016 20:16:34 The request has been made from client ip address ::1
+A valid request has been attempted by test2 : 
+User profile page
+17/09/2016 20:17:04 The request has been made from client ip address ::1
+An invalid request has been attempted :
+POST : User profile page tried to edit profile with wrong password test2
+17/09/2016 20:17:22 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+POST : Password change page tried to change password with invalid old password
+17/09/2016 20:17:28 The request has been made from client ip address ::1
+An anonymous request has been attempted :
+POST : Password change page tried to change password with invalid old password
+17/09/2016 20:17:36 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 20:17:37 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User profile page
+17/09/2016 20:17:43 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : Password change page successfuly changed password
+17/09/2016 20:17:49 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+POST : Password change page successfuly changed password
+17/09/2016 20:18:02 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 20:18:05 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:18:07 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:18:09 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful add to cart
+17/09/2016 20:18:09 The request has been made from client ip address ::1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:18:35 The request has been made from client ip address 127.0.0.1
+An anonymous request has been attempted :
+Admin page
+17/09/2016 20:18:57 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+User test has logged in to the system
+17/09/2016 20:18:59 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:19:01 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:19:15 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+POST Add to cart : an unsuccessful attempt to add to cart with wrong name/type was made by test
+17/09/2016 20:19:23 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page
+17/09/2016 20:19:24 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:19:34 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+User profile page
+17/09/2016 20:19:39 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to shop page
+17/09/2016 20:19:40 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the forum page
+17/09/2016 20:19:41 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the create forum page
+17/09/2016 20:20:07 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+POST : Successful creation of a forum post
+17/09/2016 20:20:07 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the forum page
+17/09/2016 20:20:09 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+User profile page
+17/09/2016 20:20:10 The request has been made from client ip address 127.0.0.1
+A valid request has been attempted by test : 
+Successful login to the shoppingcart page

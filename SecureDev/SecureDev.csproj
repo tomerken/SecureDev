@@ -166,7 +166,6 @@
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\ForumMessage.cs" />
-    <Compile Include="Models\homeVM.cs" />
     <Compile Include="Models\Logging.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Pet.cs" />

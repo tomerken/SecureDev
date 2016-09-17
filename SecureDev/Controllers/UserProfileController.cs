@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security.AntiXss;
 using Vladi2.Models;
 
 namespace Vladi2.Controllers
@@ -33,12 +34,12 @@ namespace Vladi2.Controllers
                         {
                             // adding messages to the list
                             user = new User();
-                            user.ID = reader.GetInt32(0);
-                            user.Username = reader.GetString(1).Trim();
-                            user.FirstName = reader.GetString(3).Trim();
-                            user.LastName = reader.GetString(4).Trim();
-                            user.Email = reader.GetString(5).Trim();
-                            user.Phone = (!reader.IsDBNull(6)) ? reader.GetString(6).Trim() : string.Empty;
+                            user.ID = int.Parse(AntiXssEncoder.HtmlEncode(reader.GetInt32(0).ToString(), true));
+                            user.Username = AntiXssEncoder.HtmlEncode(reader.GetString(1).Trim(), true);
+                            user.FirstName = AntiXssEncoder.HtmlEncode(reader.GetString(3).Trim(), true);
+                            user.LastName = AntiXssEncoder.HtmlEncode(reader.GetString(4).Trim(), true);
+                            user.Email = AntiXssEncoder.HtmlEncode(reader.GetString(5).Trim(), true);
+                            user.Phone = (!reader.IsDBNull(6)) ? AntiXssEncoder.HtmlEncode(reader.GetString(6).Trim(), true) : string.Empty;
                         }
                     }
                 }
@@ -66,9 +67,11 @@ namespace Vladi2.Controllers
                 using (var m_dbConnection = new SQLiteConnection(connectionString))
                 {
                     m_dbConnection.Open();
+                    string usernameXSS = AntiXssEncoder.HtmlEncode(u.Username, true);
+                    string passwordXSS = AntiXssEncoder.HtmlEncode(u.Password, true);
                     command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
-                    command.Parameters.AddWithValue("@username", u.Username);
-                    command.Parameters.AddWithValue("@password", u.Password);
+                    command.Parameters.AddWithValue("@username", usernameXSS);
+                    command.Parameters.AddWithValue("@password", passwordXSS);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         if (!reader.HasRows)
@@ -83,10 +86,10 @@ namespace Vladi2.Controllers
                     string sql = "UPDATE tblusers SET firstname = @firstname, lastname = @lastname, email = @email, phone = @phone ";
                     command = new SQLiteCommand();
                     command.Parameters.AddWithValue("@id", int.Parse(Session["LoggedUserId"].ToString()));
-                    command.Parameters.AddWithValue("@firstname", u.FirstName);
-                    command.Parameters.AddWithValue("@lastname", u.LastName);
-                    command.Parameters.AddWithValue("@email", u.Email);
-                    command.Parameters.AddWithValue("@phone", u.Phone);
+                    command.Parameters.AddWithValue("@firstname", AntiXssEncoder.HtmlEncode(u.FirstName, true));
+                    command.Parameters.AddWithValue("@lastname", AntiXssEncoder.HtmlEncode(u.LastName, true));
+                    command.Parameters.AddWithValue("@email", AntiXssEncoder.HtmlEncode(u.Email, true));
+                    command.Parameters.AddWithValue("@phone", AntiXssEncoder.HtmlEncode(u.Phone, true));
 
                     if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0 && Request.Files[0].FileName != "")
                     {
@@ -165,7 +168,7 @@ namespace Vladi2.Controllers
                     m_dbConnection.Open();
                     command = new SQLiteCommand("SELECT * FROM tblusers Where username = @username and password = @password", m_dbConnection);
                     command.Parameters.AddWithValue("@username", Session["LoggedUserName"].ToString());
-                    command.Parameters.AddWithValue("@password", cp.OldPassword);
+                    command.Parameters.AddWithValue("@password", AntiXssEncoder.HtmlEncode(cp.OldPassword, true));
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         if (!reader.HasRows)
@@ -178,7 +181,7 @@ namespace Vladi2.Controllers
                     string sql = "UPDATE tblusers SET password = @password WHERE id = @id";
                     command = new SQLiteCommand();
                     command.Parameters.AddWithValue("@id", int.Parse(Session["LoggedUserId"].ToString()));
-                    command.Parameters.AddWithValue("@password", cp.Password);
+                    command.Parameters.AddWithValue("@password", AntiXssEncoder.HtmlEncode(cp.Password, true));
                     command.Connection = m_dbConnection;
                     command.CommandText = sql;
                     try

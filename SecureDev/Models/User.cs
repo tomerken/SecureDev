@@ -12,6 +12,8 @@ namespace Vladi2.Models
         [ScaffoldColumn(false)]
         public int ID { get; set; }
         [Required(ErrorMessage = "Username is a required field")]
+        [RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "Use letters and numbers only in username please")]
+        [StringLength(12, ErrorMessage = "Username length must be at most 12 characters")]
         public string Username { get; set; }
         [ScaffoldColumn(false)]
         [Required(ErrorMessage = "Password is a required field")]
